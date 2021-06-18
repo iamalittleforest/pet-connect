@@ -19,7 +19,6 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //should we have options M, MN, F, FS? 
     description: {
         type: DataTypes.STRING,
         allowNull: false,
