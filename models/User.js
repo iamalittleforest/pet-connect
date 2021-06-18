@@ -30,9 +30,9 @@ User.init(
         validate:{
           isInt:true,
           len:[2],
-          isAgeCorrect(value){
-            if (parseInt(value) <= parseInt(this.age)) {
-              throw new Error('Must be older than 18 to join');
+          isAgeCorrect(){
+            if (this.age <= 18) {
+              throw new Error('Must 18 or older than to join');
             }
           }
         }
