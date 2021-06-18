@@ -31,8 +31,8 @@ User.init(
           isInt:true,
           len:[2],
           isAgeCorrect(){
-            if (this.age <= 18) {
-              throw new Error('Must 18 or older than to join');
+            if (this.age < 18) {
+              throw new Error('Must be 18 or older to join');
             }
           }
         }
