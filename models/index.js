@@ -13,6 +13,15 @@ Pet.belongTo(User,{
     foreignKey:'user_id',
 });
 
+//User to Post relation
+User.hasMany(Post, {
+    foreignKey:'user_id',
+    onDelete:'CASCADE',
+});
+
+Comment.belongTo(User, {
+    foreignKey:'user_id'
+})
 
 //User to comment relation
 User.hasMany(Comment,{
@@ -24,6 +33,17 @@ Comment.belongTo(User,{
     foreignKey:'user_id',
 });
 
+//Include this one?
+//Post to Comment relation
+Post.hasMany(Comment, {
+    foreignKey:'post_id',
+    onDelete:'CASCADE',
+});
 
+Comment.belongTo(Post, {
+    foreignKey:'post_id'
+});
+
+module.exports = {Pet, Post, User, Comment};
 
 

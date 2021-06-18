@@ -17,8 +17,8 @@ User.init(
       autoIncrement: true,
     },
     
-    // Just have the city?
-    Location: {
+    // Just have the city name?
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
