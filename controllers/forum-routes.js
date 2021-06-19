@@ -4,7 +4,7 @@ const { Comment, Pet, Post, User } = require('../../models');
 
 // forum route
 router.get('/', async(req, res) => {
-
+const forumData  = await Post.findAll
 });
 
 // single post route
