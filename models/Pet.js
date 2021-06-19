@@ -14,6 +14,10 @@ Pet.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },   
+    species: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     breed: {
       type: DataTypes.STRING,
