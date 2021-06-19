@@ -9,7 +9,7 @@ User.hasMany(Pet,{
     onDelete:'CASCADE',
 });
 
-Pet.belongTo(User,{
+Pet.belongsTo(User, {
     foreignKey:'user_id',
 });
 
@@ -19,7 +19,7 @@ User.hasMany(Post, {
     onDelete:'CASCADE',
 });
 
-Post.belongTo(User, {
+Post.belongsTo(User, {
     foreignKey:'user_id'
 })
 
@@ -29,7 +29,7 @@ User.hasMany(Comment,{
     onDelete:'CASCADE',
 });
 
-Comment.belongTo(User,{
+Comment.belongsTo(User,{
     foreignKey:'user_id',
 });
 
@@ -40,7 +40,7 @@ Post.hasMany(Comment, {
     onDelete:'CASCADE',
 });
 
-Comment.belongTo(Post, {
+Comment.belongsTo(Post, {
     foreignKey:'post_id'
 });
 
