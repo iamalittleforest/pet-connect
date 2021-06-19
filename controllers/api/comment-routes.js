@@ -8,17 +8,19 @@ router.get('/', async (req, res) => {
        const commentData = await Comment.findAll({
          include: [
            {
-             model: Comment,
+             model: User,
            },
          ],
+         
        });
-       const commentsArr = commentData.map((comment) => comment.get({ plain: true }))
+     const commentsArr = commentData.map((comment) => comment.get({ plain: true }))
+     res.status(200).json(commentData);
        //view page must be filled.
-       res.render('', {
-           commentsArr,
-           //Middleware loggin validation
-           loggedIn: req.session.loggedIn
-       })
+      //  res.render('', {
+      //      commentsArr,
+      //      //Middleware loggin validation
+      //      loggedIn: req.session.loggedIn
+      //  })
    } catch (err) {
        console.log(err);
        res.status(500).json(err);

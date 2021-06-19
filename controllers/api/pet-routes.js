@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
             ],
         });
         const petArr = petData.map((pets) => pets.get({ plain: true }));
+        res.status(200).json(petData);
         res.render('', {
             pets,
             loggedIn: req.session.loggedIn
@@ -50,13 +51,16 @@ router.get("/:id", async (req, res) => {
 
 // CREATE new pet
 router.post("/", async (req, res) => {
+    
   try {
       const petData = await Pet.create({
+       
         name: req.body.name,
         species: req.body.species,
         breed: req.body.breed,
         gender: req.body.gender,
-        age: req.body.age,
+          age: req.body.age,
+        user_id: req.body.user_id
       });
       req.session.save(() => {
           req.session.loggedIn = true;
