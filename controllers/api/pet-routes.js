@@ -72,7 +72,7 @@ router.post("/", async (req, res) => {
 });
 
 // UPDATE pet by ID
-router.put("/:id", (req, res) => {
+router.put("/:id", async(req, res) => {
     try {
         const petData = await Pet.update(req.body, {
             where: {
