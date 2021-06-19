@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 // GET single pet by ID
 router.get("/:id", async (req, res) => {
   try {
-      const petData = await Pet.findByPK(req.params.id, {
+      const petData = await Pet.findByPk(req.params.id, {
         // Can change if not needed later.
           include: [
           {
@@ -73,12 +73,41 @@ router.post("/", async (req, res) => {
 
 // UPDATE pet by ID
 router.put("/:id", (req, res) => {
-  const petData = await Pet;
+    try {
+        const petData = await Pet.update(req.body, {
+            where: {
+                id: req.params.id
+            },
+        });
+        if (!petData) {
+            res.status(404).json({ message: "No ID was found" });
+            return;
+        }
+        res.json(petData);
+  } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+  }
 });
 
 // DELETE pet by ID
 router.delete("/:id", async (req, res) => {
-  const petData = await Pet;
+    
+    try {
+        const petData = await Pet.destroy({
+            where: {
+                id: req.params.id,
+            }
+        });
+        if (!petData) {
+            res.status(404).json({ message: "No ID found" });
+        }
+        res.status(200).json(petData)
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
