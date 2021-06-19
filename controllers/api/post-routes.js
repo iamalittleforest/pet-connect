@@ -4,7 +4,16 @@ const { Comment, Pet, Post, User } = require('../../models');
 
 // GET all posts
 router.get('/', async(req, res) => {
-// const postData = await Post.
+try {
+    const postData = await Post.findAll({
+        include: [{ model: User }]
+    });
+    res.status(200).json(postData)
+    
+} catch (err) {
+    res.status(500).json(err);
+}
+
 });
 
 // GET single post by ID
