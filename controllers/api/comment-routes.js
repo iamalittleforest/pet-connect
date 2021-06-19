@@ -32,11 +32,12 @@ router.get('/', async (req, res) => {
 router.post('/', async(req, res) => {
     try {
         const commentData = await Comment.create({
-        ...req.body.description
+        ...req.body
         })
         res.status(200).json(commentData)
     } catch (error) {
-        res.status(400)
+        console.log(error);
+        res.status(400).json('hello error')
     }
     
 });
