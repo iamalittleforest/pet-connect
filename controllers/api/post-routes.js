@@ -22,7 +22,7 @@ try {
     const postData = await Post.findByPk(req.params.id, {
         include: [{ model: User }]
     });
-    if (!this.postData) {
+    if (!postData) {
         res.status(404).json({ message: 'No post with that ID' });
         return;
     }
@@ -39,6 +39,7 @@ try {
         title: req.body.title,
         category: req.body.category,
         description: req.body.description,
+        user_id: req.body.user_id
     });
     res.status(200).json(postData);
     
@@ -78,9 +79,10 @@ try {
     if (!postData) {
         res.status(404).json({ message: 'No post with this ID was found'})
     }
-    res.status(200).json
+    res.status(200).json(postData)
     
 } catch (err) {
+    console.log(err);
     res.status(500).json(err)
 }
 });
