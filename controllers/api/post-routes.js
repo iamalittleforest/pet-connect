@@ -18,7 +18,14 @@ try {
 
 // GET single post by ID
 router.get('/:id', async(req, res) => {
-// const postData = await Post.
+try {
+    const postData = await Post.findByPk(req.params.id, {
+        include: [{ model: User}]
+    })
+    
+} catch (error) {
+    
+}
 });
 
 // CREATE new post

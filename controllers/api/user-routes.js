@@ -1,7 +1,7 @@
 // import routes and models
 const router = require('express').Router();
-const { Comment, Pet, Post, User, User } = require('../../models');
-
+const { Comment, Pet, Post, User } = require('../../models');
+ 
 // GET all users
 router.get('/', async(req, res) => {
 const User = await User.findAll({})

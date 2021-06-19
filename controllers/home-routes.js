@@ -1,6 +1,6 @@
 // import routes and models
 const router = require('express').Router();
-const { Comment, Pet, Post, User } = require('../../models');
+const { Comment, Pet, Post, User } = require('../models');
 
 // dashboard route
 router.get('/', async(req, res) => {
