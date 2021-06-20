@@ -1,0 +1,15 @@
+   <div class="card border-primary mb-3" style="max-width: 20rem;">
+       {{!-- this should get the username --}}
+  <div class="card-header">{{username}}</div>
+  <div class="card-body">
+      {{!-- this should give a badge with the category --}}
+      <span class="badge rounded-pill bg-warning">{{category}}</span>
+        {{!-- text input area --}}
+    <div class="form-group">
+      <label for="exampleTextarea" class="form-label mt-4">Post</label>
+      {{!-- this should get the text input under description --}}
+      <textarea class="form-control" id="exampleTextarea" rows="3">{{description}}</textarea>
+    </div>
+    </div> 
+    
+    {{!-- will i need to add a section where the comments will attatch to the post? --}}
