@@ -2,27 +2,40 @@
 const router = require('express').Router();
 const { Comment, Pet, Post, User } = require('../models');
 
-// dashboard route
-router.get('/', async(req, res) => {
-try {
-  const data = await User.findAll({
-    include: [{ model: Comment }, { model: Pet }, { model: Post }],
-  });
-  //    for rendering pg
-  // const dataArr = dataArr.map((posts) => this.posts.get({ plain: true }));
-  // res.render(''), {
-  //     posts,
-  //     logged_in: req.session.logged_in
-  // }
-  res.status(200).json(data);
-} catch (err) {
-  res.status(500).json(err);
-}
+// import helper to prevent access unless user is logged in
+const withAuth = require('../utils/auth');
+
+// dashboard
+router.get('/', withAuth, async(req, res) => {
+  try {
+    const userData = await User.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      include: [{ model: Comment }, { model: Pet }, { model: Post }],
+    });
+
+    // serialize the data
+    const users = userData.map((user) => user.get({ plain: true }));
+
+    // for rendering pg
+    res.render('dashboard-posts', { 
+      layout: 'dashboard', 
+      users, 
+      logged_in: req.session.logged_in 
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // new pet route
-router.get('/create-pet', (req, res) => {
-
+router.get('/create-pet', withAuth, (req, res) => {
+  res.render('create-pet', { 
+    layout: 'dashboard', 
+    logged_in: req.session.logged_in 
+  });
 });
 
 // edit pet route
