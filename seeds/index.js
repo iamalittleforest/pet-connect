@@ -10,16 +10,16 @@ const seedAll = async () => {
   console.log('\n----- DATABASE SYNCED -----\n');
 
   await seedUser();
-  console.log('\n----- DATABASE SYNCED -----\n');
+  console.log('\n----- USER SEEDED -----\n');
 
   await seedPet();
-  console.log('\n----- DATABASE SYNCED -----\n');
+  console.log('\n----- PET SEEDED -----\n');
 
   await seedPost();
-  console.log('\n----- DATABASE SYNCED -----\n');
+  console.log('\n----- POST SEEDED -----\n');
 
   await seedComment();
-  console.log('\n----- DATABASE SYNCED -----\n');
+  console.log('\n----- COMMENT SEEDED -----\n');
 
   process.exit(0);
 };
