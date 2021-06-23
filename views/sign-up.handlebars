@@ -1,38 +1,42 @@
-<div class="row">
-    <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
-        {{!-- get a username --}}
-      <div class="form-group">
-        <label for="name-signup">username:</label>
-        <input class="form-input" type="text" id="username-signup" />
-      </div>
-      {{!-- get an email --}}
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      {{!-- get a location --}}
-      <div class="form-group">
-        <label for="password-signup">Loction:</label>
-        <input class="form-input" type="text" id="Location-signup" />
-      </div>
-      {{!-- get an age --}}
-      <div class="form-group">
-        <label for="password-signup">Age:</label>
-        <input class="form-input" type="number" id="Age-signup" />
-      </div>
-      {{!-- get a password --}}
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
+<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+    <div class="card-header"><h2>Signup</h2></div>
+    <div class="card-body">
+        
+        <form class="form signup-form">
+                             {{!-- get a username --}} 
+                            <div class="form-group">
+  <label class="col-form-label col-form-label-sm mt-4" for="name-signup">Username:</label>
+  <input class="form-control form-control-sm" type="text" placeholder="Username" id="inputSmall">
   </div>
+                           
+                                                    <div class="form-group">
+  <label class="col-form-label col-form-label-sm mt-4" for="name-signup">Email</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                        </div>
+
+                             {{!-- get a location --}} 
+                            <div class="form-group">
+  <label class="col-form-label col-form-label-sm mt-4" for="name-signup">Location</label>
+  <input class="form-control form-control-sm" type="text" placeholder="Enter City" id="inputSmall">
+  </div>
+                            
+                             {{!-- get an age --}} 
+                            <div class="form-group">
+  <label class="col-form-label col-form-label-sm mt-4" for="name-signup">Age</label>
+  <input class="form-control form-control-sm" type="text" placeholder="Must be 18 years or older" id="inputSmall">
+  </div>
+                            
+                            {{!-- get a password --}} 
+                            <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Sign-Up</button>
+                              
+                            </div>
+    
 </div>
 
 <script src="./js/login.js"></script>
