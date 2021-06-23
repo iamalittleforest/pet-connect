@@ -18,8 +18,8 @@ router.get('/', withAuth, async(req, res) => {
     // serialize the data
     const users = userData.map((user) => user.get({ plain: true }));
 
-    // render dashboard-info template
-    res.render('dashboard-info', { 
+    // for rendering pg
+    res.render('dashboard-index', { 
       layout: 'dashboard', 
       users, 
       logged_in: req.session.logged_in 
