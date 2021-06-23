@@ -19,7 +19,7 @@ router.get('/', withAuth, async(req, res) => {
     const users = userData.map((user) => user.get({ plain: true }));
 
     // for rendering pg
-    res.render('dashboard-posts', { 
+    res.render('dashboard-index', { 
       layout: 'dashboard', 
       users, 
       logged_in: req.session.logged_in 
