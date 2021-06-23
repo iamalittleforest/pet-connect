@@ -1,38 +1,40 @@
-<div class="row">
-    <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
+<div class="col">
+<div class="card m-2">
+    <div class="card-header post-bg">
+    <div class="action-txt">Sign Up</div>
+    </div>
+    <div class="card-body body-bg">
+    <div class="form-group">
         {{!-- get a username --}}
-      <div class="form-group">
-        <label for="name-signup">username:</label>
-        <input class="form-input" type="text" id="username-signup" />
-      </div>
-      {{!-- get an email --}}
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      {{!-- get a location --}}
-      <div class="form-group">
-        <label for="password-signup">Loction:</label>
-        <input class="form-input" type="text" id="Location-signup" />
-      </div>
-      {{!-- get an age --}}
-      <div class="form-group">
-        <label for="password-signup">Age:</label>
-        <input class="form-input" type="number" id="Age-signup" />
-      </div>
-      {{!-- get a password --}}
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
+        <label for="name-signup" class="form-label mt-4">Username</label>
+        <input type="text" class="form-control" id="username-signup" placeholder="Make a Username">
+    </div>
+    <div class="form-group">
+        {{!-- get a email --}}
+        <label for="email-signup" class="form-label mt-4">Email address</label>
+        <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        {{!-- get a location --}}
+        <label for="Location-signup" class="form-label mt-4">Location</label>
+        <input type="text" class="form-control" id="Location-signup" placeholder="What is your location">
+    </div>
+    <div class="form-group">
+        {{!-- get an age --}}
+        <label for="age-signup" class="form-label mt-4">Age</label>
+        <input type="text" class="form-control" id="age-signup" placeholder="What is your age?">
+    </div>
+    <div class="form-group">
+        {{!-- get a password --}}
+        <label for="password-signup" class="form-label mt-4">Password</label>
+        <input type="password" class="form-control" id="password-signup" placeholder="Make a Password">
+    </div>
+    <br>
+    <div class="form-group">
         <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
+    </div>
+    </div>
+</div>
 </div>
 
 <script src="./js/login.js"></script>
