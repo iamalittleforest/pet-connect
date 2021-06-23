@@ -2,24 +2,6 @@
 const router = require('express').Router();
 const { Comment, Pet, Post, User } = require('../models');
 
-<<<<<<< HEAD
-// dashboard route
-router.get('/', async(req, res) => {
-try {
-  const data = await User.findAll({
-    include: [{ model: Comment }, { model: Pet }, { model: Post }],
-  });
-  //    for rendering pg
-  const dataArr = dataArr.map((posts) => this.posts.get({ plain: true }));
-  res.render('home'), {
-      posts,
-      logged_in: req.session.logged_in
-  }
-  res.status(200).json(data);
-} catch (err) {
-  res.status(500).json(err);
-}
-=======
 // import helper to prevent access unless user is logged in
 const withAuth = require('../utils/auth');
 
@@ -46,7 +28,6 @@ router.get('/', withAuth, async(req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
->>>>>>> 9c99ca7bc504ff86c54d312d3d5f763b7d06cb07
 });
 
 // new pet route
