@@ -2,55 +2,82 @@
 const router = require('express').Router();
 const { Comment, Pet, Post, User } = require('../models');
 
-// import helper to prevent access unless user is logged in
-const withAuth = require('../utils/auth');
-
-// dashboard
-router.get('/', withAuth, async(req, res) => {
+// forum route
+router.get('/', async(req, res) => {
   try {
-    const userData = await User.findAll({
-      where: {
-        user_id: req.session.user_id
-      },
-      include: [{ model: Comment }, { model: Pet }, { model: Post }],
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
     });
 
     // serialize the data
-    const users = userData.map((user) => user.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-    // for rendering pg
-    res.render('dashboard-posts', { 
-      layout: 'dashboard', 
-      users, 
-      logged_in: req.session.logged_in 
-    });
-    res.status(200).json(userData);
+    // res.status(200).json(postData);
+    res.render('forum', { posts, logged_in: req.session.logged_in });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// new pet route
-router.get('/create-pet', withAuth, (req, res) => {
-  res.render('create-pet', { 
-    layout: 'dashboard', 
-    logged_in: req.session.logged_in 
-  });
+// single post route
+router.get('/posts/:id', async(req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['comment'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        }
+      ]
+    });
+
+    // serialize the data
+    const post = postData.get({ plain: true });
+
+    res.render('edit-post', { ...post, logged_in: req.session.logged_in });
+    // res.status(200).json(postData);
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-// edit pet route
-router.get('/edit-pet/:id', async(req, res) => {
+// login route
+router.get('/login', (req, res) => {
+  
+  // if the user is logged in, redirect to forum 
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
 
+  res.render('login');
 });
 
-// new post route
-router.get('/create-post', (req, res) => {
-
-});
-
-// edit post route
-router.get('/edit-post/:id', async(req, res) => {
-
+// sign up route
+router.get('/signup', (req, res) => {
+  
+  // if the user is logged in, redirect to forum 
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  
+  res.render('sign-up');
 });
 
 module.exports = router;
