@@ -1,13 +1,18 @@
+// import dependencies
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
+
+// import database connection
 const sequelize = require('../config/connection');
 
+// initialize User model
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// set up fields and rules for User model
 User.init(
   {
     id: {
@@ -16,27 +21,23 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    
-    // Just have the city name?
     location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    //Review age validation 
     age: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate:{
-          isInt:true,
-          len:[2],
-          isAgeCorrect(){
-            if (this.age < 18) {
-              throw new Error('Must be 18 or older to join');
-            }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate:{
+        isInt:true,
+        len:[2],
+        isAgeCorrect() {
+          if (this.age < 18) {
+            throw new Error('Must be 18 or older to join');
           }
         }
-      },
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,9 +47,10 @@ User.init(
       },
     },
     username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -77,6 +79,3 @@ User.init(
 );
 
 module.exports = User;
-
-
-// needs some reviw

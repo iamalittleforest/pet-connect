@@ -1,6 +1,10 @@
+// import dependencies
 const { Model, DataTypes } = require('sequelize');
+
+// import database connection
 const sequelize = require('../config/connection');
 
+// initialize Pet model
 class Pet extends Model {}
 
 Pet.init(
@@ -25,9 +29,9 @@ Pet.init(
     },
     //should we have options M, MN, F, FS? 
     gender: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     age: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
