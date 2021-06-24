@@ -18,7 +18,7 @@ router.get('/', withAuth, async(req, res) => {
     // serialize the data
     const users = userData.map((user) => user.get({ plain: true }));
 
-    // for rendering pg
+    // render dashboard-index view
     res.render('dashboard-index', { 
       layout: 'dashboard', 
       users, 
@@ -33,7 +33,7 @@ router.get('/', withAuth, async(req, res) => {
 // new pet route
 router.get('/create-pet', withAuth, (req, res) => {
   
-  // render create-pet template
+  // render create-pet view
   res.render('create-pet', { 
     layout: 'dashboard', 
     logged_in: req.session.logged_in 
@@ -50,7 +50,7 @@ router.get('/edit-pet/:id', withAuth, async(req, res) => {
     // serialize the data
     const pet = petData.get({ plain: true });
 
-    // render edit-pet template
+    // render edit-pet view
     res.render('edit-pet', { 
       layout: 'dashboard', 
       ...pet, 
@@ -64,7 +64,7 @@ router.get('/edit-pet/:id', withAuth, async(req, res) => {
 // new post route
 router.get('/create-post', withAuth, (req, res) => {
   
-  // render create-post template
+  // render create-post view
   res.render('create-post', { 
     layout: 'dashboard', 
     logged_in: req.session.logged_in 
@@ -81,7 +81,7 @@ router.get('/edit-post/:id', withAuth, async(req, res) => {
     // serialize the data
     const post = postData.get({ plain: true });
 
-    // render edit-post template
+    // render edit-post view
     res.render('edit-post', { 
       layout: 'dashboard', 
       ...post, 
