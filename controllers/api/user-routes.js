@@ -1,99 +1,106 @@
 // import routes and models
 const router = require('express').Router();
-const { Comment, Pet, Post, User } = require('../../models');
+const { User } = require('../../models');
  
 // GET all users
 router.get('/', async(req, res) => {
-try {
-  const userData = await User.findAll({
-    include: [{ model: Pet }],
-  });
-    // const userArr = userData.map((user2) => user2.get({ plain: true });
-  res.status(200).json(userData);
-  //view page must be filled.
-  //  res.render('', {
-  //      userArr,
-  //      //Middleware loggin validation
-  //      loggedIn: req.session.loggedIn
-  //  })
-} catch (err) {
+  try {
+    const userData = await User.findAll();
+
+    res.status(200).json(userData);
+  } catch (err) {
     console.log(err)
     res.status(500).json(err);
-}
+  }
 });
 
 // GET single user by ID
 router.get('/:id', async(req, res) => {
-try {
-    
-    const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Pet }],
-    });
-    if (!userData)
-    {
-        res.status(404).json({ message: 'No User with ID not found' });
-        return;
+  try {
+    const userData = await User.findByPk(req.params.id);
+
+    if (!userData) {
+      res
+        .status(404)
+        .json({ message: 'No user found with this ID' });
+      return;
     }
+
     res.status(200).json(userData);
-} catch (err) {
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
-}
+  }
 });
 
 // CREATE new user
 router.post('/', async(req, res) => {
-try {
+  try {
     const userData = await User.create({
-        ...req.body
+      ...req.body
     });
-    res.status(200).json(userData);
-} catch (err) {
+
+    // save the session
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    console.log(err);
     res.status(400).json(err);
-}
+  }
 });
 
-// login
+// login route
 router.post('/login', async(req, res) => {
- try {
-   const userData = await User.findOne({ where: { email: req.body.email } });
+  try {
+    const userData = await User.findOne({ 
+      where: { 
+        email: req.body.email 
+      } 
+    });
 
-   if (!userData) {
-     res
-       .status(400)
-       .json({ message: "Incorrect email or password, please try again" });
-     return;
-   }
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'No username found, please try again' });
+      return;
+    }
 
-   const validPassword = await userData.checkPassword(req.body.password);
+    // check if password is correct
+    const validPassword = await userData.checkPassword(req.body.password);
 
-   if (!validPassword) {
-     res
-       .status(400)
-       .json({ message: "Incorrect email or password, please try again" });
-     return;
-   }
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+      return;
+    }
 
-   req.session.save(() => {
-     req.session.user_id = userData.id;
-     req.session.logged_in = true;
+    // save the session
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-     res.json({ user: userData, message: "You are now logged in!" });
-   });
- } catch (err) {
-   res.status(400).json(err);
- }
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-// logout
+// logout route
 router.post('/logout', (req, res) => {
-if (req.session.logged_in) {
-  req.session.destroy(() => {
-    res.status(204).end();
-  });
-} else {
-  res.status(404).end();
-}
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    console.log(err);
+    res.status(404).end();
+  }
 });
 
 module.exports = router;
