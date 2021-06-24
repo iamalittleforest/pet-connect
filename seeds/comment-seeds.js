@@ -1,4 +1,5 @@
-const {Comment} = require('../models');
+// import Comment model
+const { Comment } = require('../models');
 
 const commentData = [
     {
@@ -31,10 +32,9 @@ const commentData = [
         body: 'Your cat Layla can play with my cats on the weekends that I am home!',
         post_id: '6', 
     },
-
 ];
 
-
+// create and insert multiple Comments using commentData
 const seedComments = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComments;
