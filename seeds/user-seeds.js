@@ -1,4 +1,5 @@
-const {User} = require('../models');
+// import User model
+const { User } = require('../models');
 
 const userData = [
     {
@@ -45,6 +46,7 @@ const userData = [
     },
 ];
 
+// create and insert multiple Users using userData
 const seedUsers = () => User.bulkCreate(userData, {
     individualHooks: true
   });

@@ -1,4 +1,5 @@
-const {Pet} = require('../models');
+// import Pet model
+const { Pet } = require('../models');
 
 const petData = [
     {
@@ -74,8 +75,8 @@ const petData = [
         user_id: 6
     },
 ];
-    
 
-
+// create and insert multiple Pets using petData
 const seedPets = () => Pet.bulkCreate(petData);
+
 module.exports = seedPets;
