@@ -1,6 +1,10 @@
+// import dependencies
 const { Model, DataTypes } = require('sequelize');
+
+// import database connection
 const sequelize = require('../config/connection');
 
+// initialize User model
 class Post extends Model {}
 
 Post.init(
@@ -20,9 +24,9 @@ Post.init(
       allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
