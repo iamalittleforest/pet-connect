@@ -1,0 +1,50 @@
+
+  <!-- make post layout sample idea-->
+
+<div>
+  <div class="card border-primary mb-" style="max-width: 60rem; align-items: center; margin-left: 20%; margin-top: 5%;">
+    <!-- this should get the username -->
+    <h2>Create a Post</h2>
+    <p>What is on your mind?</p>
+<div class="card-header">{{username}}</div>
+<div class="card-body">
+   <!-- option for the categories -->
+   <div class="form-group">
+    <p>What category is this post's category?</p>
+    <div class="col-lg-10">
+      <div class="category">
+        <label>
+          <input type="checkbox" name="advidce" id="category1" value="advidce" checked="">
+          Advice
+        </label>
+      </div>
+      <div class="category">
+        <label>
+          <input type="checkbox" name="questions" id="category2" value="questions">
+          Questions
+        </label>
+      </div>
+      <div class="category">
+        <label>
+          <input type="checkbox" name="food" id="category3" value="food">
+          Food
+        </label>
+        <div class="category">
+          <label>
+            <input type="checkbox" name="playDate" id="category4" value="playdate">
+            Play Date
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- text input area -->
+ <div class="form-group">
+   <label for="exampleTextarea" class="form-label mt-4">Post Content :</label>
+   <!-- this should get the text input under description and place it into a p tag -->
+   <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+ </div>
+ </div> 
+ <button type="button" class="btn btn-success">Submit</button>
+ <br>
+</div>
