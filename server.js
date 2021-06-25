@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const nodemailer = require("nodemailer")
 
 // import routes, helpers, and connection
 const routes = require("./controllers");
@@ -49,3 +50,9 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}!`));
 });
+
+
+
+let transporter = nodemailer.createTransport({
+  
+})
