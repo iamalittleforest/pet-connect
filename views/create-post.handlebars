@@ -12,22 +12,22 @@
    <!-- this should give a badge with the category -->
    <div class="form-group">
     <p>What category is this post's category?</p>
-    <div class="col-med-4">
+    <div class="col-med-4" id= "categoryOptions">
       <div class="category ">
         <label>
-          <input type="radio" name="advidce" id="category1" value="service" checked="">
+          <input type="radio" name="meetup" id="category1" value="service" checked="true">
           Service
         </label>
       </div>
       <div class="category">
         <label>
-          <input type="radio" name="questions" id="category2" value="inquiry">
+          <input type="radio" name="meetup" id="category2" value="inquiry">
           Inquiry
         </label>
       </div>
       <div class="category">
         <label>
-          <input type="radio" name="food" id="category3" value="products">
+          <input type="radio" name="meetup" id="category3" value="products">
           Products
         </label>
         <div class="category">
@@ -49,9 +49,11 @@
  <div class="form-group">
    <label for="exampleTextarea" class="form-label mt-4">Post Content :</label>
    <!-- this should get the text input under description and place it into a p tag -->
-   <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+   <textarea class="form-control" id="postContent" rows="3"></textarea>
  </div>
  </div> 
  <button type="button" class="btn btn-success">Submit</button>
  <br>
 </div>
+
+<script src= "../public/js/create-post.js"></script>
