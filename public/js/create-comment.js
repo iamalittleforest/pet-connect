@@ -3,7 +3,7 @@ const createCommentHandler = async (event) => {
     event.preventDefault();
   
     // collect inputs
-    const comment = document.querySelector('#create-comment').value.trim();
+    const comment = document.querySelector('#commentContent').value.trim();
     const post_id = window.location.toString().split('/').slice(-1)[0];
     // console.log(comment, post_id);
   
