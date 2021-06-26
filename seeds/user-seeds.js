@@ -28,21 +28,21 @@ const userData = [
     age: '40',
     email: 'dude4@fake.com',
     username: 'dude',
-    password: '123'
+    password: '123456789'
   },
   {
     location: 'Santa Ana',
     age: '30',
     email: 'mrfake@fake.com',
     username: 'fake',
-    password: '1234'
+    password: '12345678'
   },
   {
     location: 'Laguna Beach ',
     age: '42',
     email: 'fakemail@fake.com',
     username: 'beachlover',
-    password: 'ocean'
+    password: 'ocean1234'
   },
 ];
 
