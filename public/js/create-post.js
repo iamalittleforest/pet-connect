@@ -1,12 +1,38 @@
-const postContent = document.querySelector('#postContent');
-const categoryOptions = document.querySelector('#categoryOptions');
+// define function to create post
+const createPost = async (event) => {
+  event.preventDefault();
 
+  // collect inputs from textarea
+  const title = document.querySelector('#create-post-title').value.trim();
+  const description = document.querySelector('#create-post-description').value.trim();
 
-// let chosen = "service";
-// Array.from(document.getElementsByClassName("radio")).forEach((a) => {
-//   a.addEventListener("click", function () {
-//     chosen = this.value;
-//     console.log(chosen);
-//   });
-// });
+  // collect inputs from radio buttons
+  let category = "inquiry";
+  Array.from(document.getElementsByClassName("radio")).forEach((a) => {
+    a.addEventListener("click", function () {
+      category = this.value;
+      console.log(category);
+    });
+  });
+  console.log(title, category, description);
 
+  if (title && category && description) {
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      body: JSON.stringify({ title, category, description }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    // redirect to dashboard if post creation is successful
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+// listen for submit
+document
+  .querySelector('.post-form')
+  .addEventListener('submit', createPost);

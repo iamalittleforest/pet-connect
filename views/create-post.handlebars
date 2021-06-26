@@ -1,59 +1,56 @@
-
-  <!-- make post layout sample idea-->
- <!-- make post layout -->
-
-<div style="align-items: center; margin-left: 20%; margin-top: 5%;">
-  <div class="card border-primary mb" style="max-width: 60rem; align-items: center;">
-    <!-- this should get the username -->
-    <h2>Create a Post</h2>
-    <p>What is on your mind?</p>
-<div class="card-header">{{username}}</div>
-<div class="card-body">
-   <!-- this should give a badge with the category -->
-   <div class="form-group">
-    <p>What category is this post's category?</p>
-    <div class="col-med-4">
-      <div class="category ">
-        <label>
-          <input type="radio" name="meetup" class="radio" id="category1" value="service" checked>
-          Service
-        </label>
-      </div>
-      <div class="category">
-        <label>
-          <input type="radio" name="meetup" class="radio" id="category2" value="inquiry">
-          Inquiry
-        </label>
-      </div>
-      <div class="category">
-        <label>
-          <input type="radio" name="meetup" class="radio" id="category3" value="products">
-          Products
-        </label>
-        <div class="category">
-          <label>
-            <input type="radio" name="meetup" class="radio" id="category4" value="meetup">
-            Meet up
-          </label>
+<!-- create post -->
+<div class="create-post-card">
+  <div style="align-items: center; margin-left: 20%; margin-top: 5%;">
+    <div class="card border-primary mb" style="max-width: 60rem; align-items: center;">
+      <form class="form post-form">
+        <div class="card-header">Create a post</div>
+        <div class="card-body">
+          <div class="form-group title">
+            <label for="create-post-title" class="form-label mt-4">Title</label>
+            <textarea class="form-control" id="create-post-title" rows="1"></textarea>
+          </div>
+          <div class="form-group category">
+            <label for="create-post-category" class="form-label mt-4">Category</label>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="create-post-category" class="radio" id="inquiry" value="inquiry">
+                Inquiry
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="meetup" value="category">
+                Meet Up
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="products" value="products">
+                Products
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="service" value="service">
+                Service
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="training" value="training">
+                Training
+              </label>
+            </div>
+          </div>
+          <div class="form-group description">
+            <label for="create-post-description" class="form-label mt-4">Description:</label>
+            <textarea class="form-control" id="create-post-description" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success mt-4" id="create-post-btn">Submit</button>
         </div>
-        <div class="category">
-          <label>
-            <input type="radio" name="meetup" class="radio" id="category5" value="training">
-            Training
-          </label>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
-     <!-- text input area -->
- <div class="form-group">
-   <label for="exampleTextarea" class="form-label mt-4">Post Content :</label>
-   <!-- this should get the text input under description and place it into a p tag -->
-   <textarea class="form-control" id="post" rows="3"></textarea>
- </div>
- </div> 
- <button type="button" class="btn btn-success">Submit</button>
- <br>
 </div>
 
-<script src= "../public/js/create-post.js"></script>
+<script src="/js/create-post.js"></script>
