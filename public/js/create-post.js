@@ -1,3 +1,12 @@
+// collect inputs from radio buttons
+let category = null;
+Array.from(document.getElementsByClassName("radio")).forEach((a) => {
+  a.addEventListener("click", function () {
+    category = this.value;
+    console.log(category);
+  });
+});
+
 // define function to create post
 const createPost = async (event) => {
   event.preventDefault();
@@ -5,16 +14,7 @@ const createPost = async (event) => {
   // collect inputs from textarea
   const title = document.querySelector('#create-post-title').value.trim();
   const description = document.querySelector('#create-post-description').value.trim();
-
-  // collect inputs from radio buttons
-  let category = "inquiry";
-  Array.from(document.getElementsByClassName("radio")).forEach((a) => {
-    a.addEventListener("click", function () {
-      category = this.value;
-      console.log(category);
-    });
-  });
-  console.log(title, category, description);
+  // console.log(title, category, description);
 
   if (title && category && description) {
     const response = await fetch('/api/posts', {
