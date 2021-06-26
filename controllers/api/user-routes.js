@@ -1,9 +1,12 @@
 // import routes and models
 const router = require('express').Router();
 const { User } = require('../../models');
- 
+
+// import helper to send emails
+const mailer = require('../../utils/mailer');
+
 // GET all users
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll();
 
@@ -15,7 +18,7 @@ router.get('/', async(req, res) => {
 });
 
 // GET single user by ID
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
 
@@ -34,16 +37,27 @@ router.get('/:id', async(req, res) => {
 });
 
 // CREATE new user
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
       ...req.body
     });
 
     // save the session
-    req.session.save(() => {
+    req.session.save(async () => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+
+      // send mail
+      const mailOptions = {
+        from: 'noreply.PetConnect@gmail.com',
+        to: userData.email,
+        subject: 'Registration Confirmation for Pet Connect',
+        text: 'Welcome to Pet Connect!'
+      }
+
+      console.log(mailOptions)
+      await mailer.sendMail(mailOptions);
 
       res.status(200).json(userData);
     });
@@ -54,12 +68,12 @@ router.post('/', async(req, res) => {
 });
 
 // login route
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ 
-      where: { 
-        email: req.body.email 
-      } 
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email
+      }
     });
 
     if (!userData) {
