@@ -3,38 +3,44 @@
     <!-- this should get the username -->
     <h2>Edit post</h2>
 <div class="card-header">{{username}}</div>
+<div class="form-group">
+  <fieldset disabled="">
+    <label class="form-label" for="disabledInput"><h3>{{title}}</h3></label>
+    <input class="form-control" id="edit-title" type="text" placeholder="{{title}}">
+  </fieldset>
+</div>
 <div class="card-body">
   <!-- category -->
    <div class="form-group">
      <p>Current: {{category}}</p>
     <p>What category is this post's category?</p>
     <div class="col-med-4">
-      <div class="category ">
+      <div class="category">
         <label>
-          <input type="radio" name="advidce" id="category1" value="service" checked="">
+          <input type="radio" name="category" id="service" value="service" checked="">
           Service
         </label>
       </div>
       <div class="category">
         <label>
-          <input type="radio" name="questions" id="category2" value="inquiry">
+          <input type="radio" name="category" id="inquiry" value="inquiry">
           Inquiry
         </label>
       </div>
       <div class="category">
         <label>
-          <input type="radio" name="food" id="category3" value="products">
+          <input type="radio" name="category" id="products" value="products">
           Products
         </label>
         <div class="category">
           <label>
-            <input type="radio" name="meetup" id="category4" value="meetup">
+            <input type="radio" name="category" id="meetup" value="meetup">
             Meet up
           </label>
         </div>
         <div class="category">
           <label>
-            <input type="radio" name="meetup" id="category5" value="training">
+            <input type="radio" name="category" id="training" value="training">
             Training
           </label>
         </div>
@@ -44,9 +50,10 @@
  <div class="form-group">
    <label for="exampleTextarea" class="form-label mt-4">Post Content :</label>
    <!-- the description shoul fill the text area for editing -->
-   <textarea class="form-control" id="exampleTextarea" rows="3">{{description}}</textarea>
+   <textarea class="form-control" id="edit-post-content" rows="3">{{description}}</textarea>
  </div>
  </div> 
- <button type="button" class="btn btn-success">Submit</button>
- <br>
+ <button type="button" class="btn btn-success" id="edit-post"
 </div>
+
+<script src="../public/js/edit-post.js"></script>
