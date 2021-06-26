@@ -3,23 +3,20 @@ const router = require('express').Router();
 const { Comment, Pet, Post, User } = require('../models');
 
 // home route
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll({
-      where: {
-        user_id: req.session.user_id
-      },
-      include: [{ model: Comment }, { model: Pet }, { model: Post }],
+    const postData = await Post.findAll({
+      include: [{ model: User }],
     });
 
     // serialize the data
-    const users = userData.map((user) => user.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     // render home-posts view
-    res.render('home-posts', { 
-      layout: 'home', 
-      users, 
-      logged_in: req.session.logged_in 
+    res.render('home-posts', {
+      layout: 'home',
+      posts,
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -28,13 +25,12 @@ router.get('/', async(req, res) => {
 });
 
 // single post route
-router.get('/posts/:id', async(req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
-        { model: Comment, include: { model: User } },
-        { model: Pet },
-        { model: User }
+        { model: User },
+        { model: Comment, include: { model: User } }
       ]
     });
 
@@ -42,10 +38,10 @@ router.get('/posts/:id', async(req, res) => {
     const post = postData.get({ plain: true });
 
     // render create-comment view
-    res.render('create-comment', { 
+    res.render('create-comment', {
       layout: 'home',
-      ...post, 
-      logged_in: req.session.logged_in 
+      ...post,
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -55,7 +51,7 @@ router.get('/posts/:id', async(req, res) => {
 
 // login route
 router.get('/login', (req, res) => {
-  
+
   // if the user is logged in, redirect to home 
   if (req.session.logged_in) {
     res.redirect('/');
@@ -63,22 +59,22 @@ router.get('/login', (req, res) => {
   }
 
   // render login view
-  res.render('login', { 
+  res.render('login', {
     layout: 'home'
   });
 });
 
 // sign up route
 router.get('/signup', (req, res) => {
-  
+
   // if the user is logged in, redirect to home 
   if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
-  
+
   // render sign-up view
-  res.render('sign-up', { 
+  res.render('sign-up', {
     layout: 'home'
   });
 });
