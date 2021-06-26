@@ -1,16 +1,19 @@
 <!-- view post -->
-{{#each posts}}
+{{#each users}}
+{{#each posts as |post|}}
+
 <div class="col">
   <div class="card mb-3">
-    <div class="card-header">
+    <div class="card-header bg-active">
       <span class="post-title-txt">
         <!-- header acts as a link to view a single post -->
-        <a class="post-link" href="/dashboard/edit-post/{{id}}">{{title}}</a>
+        <a class="post-link" href="/dashboard/edit-post/{{id}}">{{post.title}}</a>
       </span>
       <span class="post-user-txt">
-        {{format_date date_created}}
+        {{!-- {{format_date date_created}} --}}
       </span>
     </div>
   </div>
 </div>
+{{/each}}
 {{/each}}

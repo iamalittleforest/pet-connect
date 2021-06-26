@@ -1,37 +1,38 @@
 <!-- render posts -->
-  <div class="container posts">
-        <div class="row align-items-center">
+<div class="outer" style="display:flex; flex-direction:row;justify-content:space-evenly; width: 100%">
+
+  <div class="posts p-4 mt-3 shadow-lg bg-secondary" style="width: 45%; height:80vh;;box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;
+">
             <!-- START OF POSTS -->
-            <div class="col"style="overflow-x: scroll; max-height: 80vh;">
-                <div class="list-group"
-                    data-bs-spy="scroll">
-                    <a href="#"
-                        class="list-group-item list-group-item-action active"
-                        aria-current="true">
+            <div  style="toverflow-x: scroll; max-height: 80vh;">
+
+                
                         {{> post-header}}
-                    </a>
-                     
-                </div>
+
+                <div class="text-center m-2">
+   
+    <button type="button" class="btn btn-outline-light" href="/dashboard/create">Create New Post</button>
             </div>
+            </div>
+            </div>
+
             <!-- END OF POSTS -->
             <!-- START OF PETS -->
- <div class="container pets">
-        <div class="row align-items-center">
+        <div class="pets shadow-lg p-4 mt-3 bg-secondary" style="width: 45%;height:80vh;background: #505050; box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
             
-            <div class="col" style="overflow-x: scroll; max-height: 80vh;">
-                <div class="list-group"
-                    data-bs-spy="scroll">
-                    <a href="#"
-                        class="list-group-item list-group-item-action active"
-                        aria-current="true">
+            <div style="overflow-x: scroll; max-height: 80vh;">
+
+                    {{!-- <ul class="list-group"> --}}
+
                         {{> pet-header}}
-                    </a>    
-                     
-                </div>
-            </div>
+                       
+                    {{!-- </ul> --}}
+    </div>
 <!-- new post button -->
-<div class="col">
   <div class="text-center m-2">
-    <a class="btn btn-bg btn-txt" href="/dashboard/create" role="button">New Post</a>
-  </div>
+   
+    <button type="button" class="btn btn-outline-light" href="/dashboard/create">Create New Post</button>
+            </div>
+  
+        </div>
 </div>

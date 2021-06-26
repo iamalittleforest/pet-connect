@@ -1,14 +1,19 @@
 <!-- view comment -->
 {{#each comments}}
-<div class="comment-card">
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-    <div class="card-header">{{username}}</div>
-    <div class="card-body">
-      <div class="form-group">
-        <label for="comment" class="form-label mt-4">Comment</label>
-        <p class="card-text">{{body}}</p>
+  <a
+    href="#"
+    class="list-group-item list-group-item-action active"
+    aria-current="true">
+  <div class="comment-card">
+    <div class="card border-success mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{username}}</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="comment" class="form-label mt-4">Comment</label>
+          <p class="card-text">{{body}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  </a>
 {{/each}}
