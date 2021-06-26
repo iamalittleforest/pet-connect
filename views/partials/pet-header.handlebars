@@ -1,9 +1,10 @@
 <!-- view post -->
 {{#each pets}}
 <div class="col">
-  <div class="card m-2">
-    <div class="card-header pet-header pet-bg">
+  <div class="card mb-3">
+    <div class="card-header">
       <span class="pet-name-txt">
+        <!-- header acts as a link to view a single pet -->
         <a class="pet-link" href="/dashboard/edit-pet/{{id}}">{{name}}</a>
       </span>
     </div>

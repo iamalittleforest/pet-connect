@@ -1,11 +1,17 @@
+<!-- view pet -->
+{{#each pets}}
 <div class="pet-card">
-<div class="card border-info mb-3" style="max-width: 20rem;">
-  <div class="card-header">{{name}}</div>
-  <div class="card-body">
-    <h4 class="card-title">{{species}}</h4>
-    <h4 class="card-title">{{breed}}</h4>
-    <h4 class="card-title">{{gender}}</h4>
-    <h4 class="card-title">{{age}}</h4>
+  <div class="card border-info mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+      <!-- header acts as a link to view a single pet -->
+      <a class="pet-link" href="/pets/{{id}}">{{name}}</a>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Species: {{species}}</h4>
+      <h4 class="card-title">Breed: {{breed}}</h4>
+      <h4 class="card-title">Gender: {{gender}}</h4>
+      <h4 class="card-title">Age: {{age}}</h4>
+    </div>
   </div>
 </div>
-</div>
+{{/each}}

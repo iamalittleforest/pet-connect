@@ -1,9 +1,10 @@
 <!-- view post -->
 {{#each posts}}
 <div class="col">
-  <div class="card m-2">
-    <div class="card-header post-header post-bg">
+  <div class="card mb-3">
+    <div class="card-header">
       <span class="post-title-txt">
+        <!-- header acts as a link to view a single post -->
         <a class="post-link" href="/dashboard/edit-post/{{id}}">{{title}}</a>
       </span>
       <span class="post-user-txt">
