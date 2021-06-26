@@ -1,4 +1,4 @@
- <div style="align-items: center; margin-left: 25%;">
+<div style="align-items: center; margin-left: 25%;">
   <div class="card border-success mb-3" style="max-width: 20rem;">
     <div class="card-header">Add a pet</div>
     <div class="card-body">
@@ -8,22 +8,28 @@
         <label class="col-form-label mt-4" for="inputDefault">What is your pet's name?</label>
         <input type="text" class="form-control" placeholder="Max" id="petName">
       </div>
+
       <br>
-      <p>Current species: {{species}}</p>
-      <p>choose your pet's species</p>
-      <div class="row" >
-        <div class="col" >
+
+      <div class="row">
+        <p>Current species: {{species}}</p>
+        <p>choose your pet's species</p>
+        <div class="col">
           <i class="fas fa-dog fa-4x"></i>
-          <button type="button" class="btn btn-info">Canine</button>
+          <button type="radio" class="form-check-input species" name="species" id="canineOption" value="Canine"
+            checked=""></button>
         </div>
-        <div class="col" >
+        <div class="col">
           <i class="fas fa-cat fa-4x"></i>
-          <button type="button" class="btn btn-info">Feline</button>
+          <button type="radio" class="form-check-input species" name="species" id="felineOption"
+            value="Feline"></button>
         </div>
       </div>
+
       <br>
+
       <p>Current breed : {{breed}}</p>
-      
+
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">What is your pet's breed?</label>
         <input type="text" class="form-control" placeholder="Labrador" id="peBreed">
@@ -33,25 +39,28 @@
         <p>Current Gender : {{gender}}</p>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Male" checked="">
+            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios1" value="Male"
+              checked="">
             Male
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="Male Neutered">
+            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios2"
+              value="Male Neutered">
             Male Neutered
           </label>
         </div>
         <div class="form-check disabled">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Female">
+            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios3" value="Female">
             Female
           </label>
         </div>
         <div class="form-check disabled">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Female Spayed">
+            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios3"
+              value="Female Spayed">
             Female Spayed
           </label>
         </div>
@@ -64,9 +73,25 @@
           <input class="form-control" id="newPetAge" type="text" placeholder="Pet age">
         </fieldset>
       </div>
-    </div> 
+    </div>
     <button type="button" class="btn btn-success">Submit</button>
     <br>
-   </div>
   </div>
- </div>
+</div>
+</div>
+<script>
+  let chosenSpecies = {{ species }};
+  Array.from(document.getElementsByClassName("species")).forEach((a) => {
+    a.addEventListener("click", function () {
+      chosenSpecies = this.value;
+      console.log(chosenSpecies);
+    });
+  });
+  let chosenGender = {{ gender }};
+  Array.from(document.getElementsByClassName("gender")).forEach((a) => {
+    a.addEventListener("click", function () {
+      chosenGender = this.value;
+      console.log(chosenGender);
+    });
+  });
+</script>
