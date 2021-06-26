@@ -9,3 +9,4 @@ Array.from(document.getElementsByClassName("radio")).forEach((a) => {
     console.log(chosen);
   });
 });
+
