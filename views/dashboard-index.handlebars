@@ -1,12 +1,34 @@
 <!-- render posts -->
-{{> post-header}}
-
-
-
-
-
-{{> pet-header}}
-
+  <div class="container posts">
+        <div class="row align-items-center">
+            <!-- START OF POSTS -->
+            <div class="col"style="overflow-x: scroll; max-height: 80vh;">
+                <div class="list-group"
+                    data-bs-spy="scroll">
+                    <a href="#"
+                        class="list-group-item list-group-item-action active"
+                        aria-current="true">
+                        {{> post-header}}
+                    </a>
+                     
+                </div>
+            </div>
+            <!-- END OF POSTS -->
+            <!-- START OF PETS -->
+ <div class="container pets">
+        <div class="row align-items-center">
+            
+            <div class="col" style="overflow-x: scroll; max-height: 80vh;">
+                <div class="list-group"
+                    data-bs-spy="scroll">
+                    <a href="#"
+                        class="list-group-item list-group-item-action active"
+                        aria-current="true">
+                        {{> pet-header}}
+                    </a>    
+                     
+                </div>
+            </div>
 <!-- new post button -->
 <div class="col">
   <div class="text-center m-2">
