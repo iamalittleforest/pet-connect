@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       where: {
-        user_id: req.session.user_id
+        id: req.session.user_id
       },
       include: [{ model: Pet }, { model: Post }],
     });
