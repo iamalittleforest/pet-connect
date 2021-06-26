@@ -43,21 +43,21 @@ router.post('/', async (req, res) => {
       ...req.body
     });
 
+    // send mail
+    const mailOptions = {
+      from: 'noreply.PetConnect@gmail.com',
+      to: userData.email,
+      subject: 'Registration Confirmation for Pet Connect',
+      text: 'Welcome to Pet Connect!'
+    }
+    
+    // console.log(mailOptions)
+    await mailer.sendMail(mailOptions);
+    
     // save the session
-    req.session.save(async () => {
+    req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
-      // send mail
-      const mailOptions = {
-        from: 'noreply.PetConnect@gmail.com',
-        to: userData.email,
-        subject: 'Registration Confirmation for Pet Connect',
-        text: 'Welcome to Pet Connect!'
-      }
-
-      console.log(mailOptions)
-      await mailer.sendMail(mailOptions);
 
       res.status(200).json(userData);
     });
