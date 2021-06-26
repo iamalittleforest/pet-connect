@@ -70,3 +70,13 @@
    </div>
   </div>
  </div>
+ <script>
+let chosen = {{gender}};
+Array.from(document.getElementsByClassName("radio")).forEach((a) => {
+  a.addEventListener("click", function () {
+    chosen == this.value;
+    console.log(chosen);
+  });
+});
+
+</script>

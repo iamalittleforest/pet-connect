@@ -1,21 +1,16 @@
- 
- {{> post}}
 
- {{> comment}}
- 
- {{#if logged_in}}
- <div class="card border-success mb-3" style="max-width: 20rem;">
-       {{!-- this should get the username --}}
-  <div class="card-header">{{username}}</div>
-  <div class="card-body">
-        {{!-- text input area --}}
-    <div class="form-group">
-      <label for="exampleTextarea" class="form-label mt-4">comment</label>
-      {{!-- this should get the text input under body --}}
+{{> post}}
+
+{{> comment}}
+
+{{#if logged_in}}
+  <div class="card border-success mb-3" style="max-width: 20rem;">
+    <div class="card-header">{{username}}</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">comment</label>
       <p class="card-text">{{body}}</p>
     </div>
-    </div> 
-
-<script src="/js/create-comment.js"></script>
-  {{/if}}
-    
+  </div>
+  <script src="/js/create-comment.js"></script>
+{{/if}}
