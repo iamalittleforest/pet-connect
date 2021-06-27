@@ -1,5 +1,4 @@
 // collect inputs from radio buttons
-let gender = document.querySelector("#gender").value.trim();
 Array.from(document.getElementsByClassName("radio")).forEach((a) => {
   a.addEventListener("click", function () {
     gender = this.value;
@@ -38,4 +37,4 @@ const updatePet = async (event) => {
 // listen for click
 document
   .querySelector("#update-pet-btn")
-  .addEventListener("click", updatePet());
+  .addEventListener("click", updatePet);

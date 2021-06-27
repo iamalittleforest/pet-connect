@@ -23,4 +23,4 @@ const deletePost = async (event) => {
 // listen for click
 document
   .querySelector('#delete-post-btn')
-  .addEventListener('click', deletePost());
+  .addEventListener('click', deletePost);
