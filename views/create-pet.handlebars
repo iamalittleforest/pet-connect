@@ -1,76 +1,56 @@
-<!-- add a pet -->
-
- <div style="align-items: center; margin-left: 25%;">
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-    <div class="card-header">Add a pet</div>
-    <div class="card-body">
-      <form action="" class="pet-info">
-
-      <div class="form-group">
-        <p>add infortaion to add a pet to your account</p>
-        <label class="col-form-label mt-4" for="inputDefault">What is your pet's name?</label>
-        <input type="text" class="form-control" placeholder="Max" id="petName">
+<!-- create pet -->
+<div class="create-pet-card m-3">
+  <div class="card border-primary">
+    <form class="form create-pet-form">
+      <div class="card-header">Create Pet</div>
+      <div class="card-body">
+        <div class="form-group name mb-3">
+          <label for="create-pet-name" class="form-label">Name</label>
+          <textarea class="form-control" id="create-pet-name" rows="1"></textarea>
+        </div>
+        <div class="form-group species mb-3">
+          <label for="create-pet-species" class="form-label">Species</label>
+          <textarea class="form-control" id="create-pet-species" rows="1"></textarea>
+        </div>
+        <div class="form-group breed mb-3">
+          <label for="create-pet-breed" class="form-label">Breed</label>
+          <textarea class="form-control" id="create-pet-breed" rows="1"></textarea>
+        </div>
+        <div class="form-group gender mb-3">
+          <label for="create-pet-gender" class="form-label">Gender</label>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="male" value="male">
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="male-neutered" value="male-neutered">
+              Male Neutered
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="female" value="female">
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="female-spayed" value="female-spayed">
+              Female Spayed
+            </label>
+          </div>
+        </div>
+        <div class="form-group age mb-3">
+          <label for="create-pet-age" class="form-label">Age</label>
+          <textarea class="form-control" id="create-pet-age" rows="1"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" id="create-pet-btn">Submit</button>
       </div>
-      <br>
-      <div class="row" >
-        <div class="col" >
-          <i class="fas fa-dog fa-4x"></i>
-          <button type="radio" class="form-check-input species" name="species" id="canineOption" value="Canine" checked=""></button>
-        </div>
-        <div class="col" >
-          <i class="fas fa-cat fa-4x"></i>
-          <button type="radio" class="form-check-input species" name="species" id="felineOption" value="Feline" ></button>
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <label class="col-form-label mt-4" for="inputDefault">What is your pet's breed?</label>
-        <input type="text" class="form-control" placeholder="Labrador" id="petBreed">
-      </div>
-      <fieldset class="form-group">
-        <legend class="mt-4">Gender</legend>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Male" checked="">
-            Male
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="Male Neutered">
-            Male Neutered
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Female">
-            Female
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Female Spayed">
-            Female Spayed
-          </label>
-        </div>
-      </fieldset>
-      <br>
-      <div class="form-group">
-        <fieldset>
-          <label class="form-label" for="disabledInput">What is your pet's age?</label>
-          <input class="form-control" id="petAge" type="text" placeholder="Pet age">
-        </fieldset>
-      </div>
-      </form>
-    </div> 
-    <button type="button" class="btn btn-success">Success</button>
-    <br>
-   </div>
-      </div>
-      
-
-    </div>
+    </form>
   </div>
- </div>
- <script src="../public/js/create-post.js"></script>
- <!-- end of add pet -->
+</div>
+
+<script src="/js/create-pet.js"></script>
