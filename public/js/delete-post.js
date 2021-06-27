@@ -1,12 +1,3 @@
-// collect inputs from radio buttons
-let category = document.querySelector('#category').value.trim();
-Array.from(document.getElementsByClassName("radio")).forEach((a) => {
-  a.addEventListener("click", function () {
-    category = this.value;
-    console.log(category);
-  });
-});
-
 // define function to delete post
 const deletePost = async (event) => {
   event.preventDefault();
@@ -29,7 +20,7 @@ const deletePost = async (event) => {
   }
 };
 
-// listen for lick
+// listen for click
 document
   .querySelector('#delete-post-btn')
   .addEventListener('click', deletePost());
