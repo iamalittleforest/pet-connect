@@ -1,9 +1,11 @@
+// define function to login
 const logout = async () => {
   const response = await fetch("/api/users/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
 
+  // redirect to home if logout is successful
   if (response.ok) {
     document.location.replace("/");
   } else {
@@ -11,4 +13,6 @@ const logout = async () => {
   }
 };
 
-document.querySelector("#logout").addEventListener("click", logout);
+document
+  .querySelector("#logout")
+  .addEventListener("click", logout);
