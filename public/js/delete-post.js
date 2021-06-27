@@ -13,7 +13,7 @@ const deletePost = async (event) => {
 
   // collect inputs
   const id = window.location.toString().split('/').slice(-1)[0];
-  // console.log(id);
+  console.log(id);
 
   if (id) {
     const response = await fetch(`/api/posts/${id}`, {
