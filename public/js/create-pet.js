@@ -16,7 +16,7 @@ const createPet = async (event) => {
   const species = document.querySelector('#create-pet-species').value.trim();
   const breed = document.querySelector('#create-pet-breed').value.trim();
   const age = document.querySelector('#create-pet-age').value.trim();
-  console.log(name && gender && species && breed && age);
+  console.log(name && species && breed && gender && age);
   
     if (name && species && breed && gender && age) {
       const response = await fetch('/api/pets', {

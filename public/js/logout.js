@@ -13,6 +13,7 @@ const logout = async () => {
   }
 };
 
+// listen for submit
 document
   .querySelector("#logout")
   .addEventListener("click", logout);
