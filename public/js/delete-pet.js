@@ -23,4 +23,4 @@ const deletePet = async (event) => {
 // listen for click
 document
   .querySelector("#delete-pet-btn")
-  .addEventListener("click", deletePet());
+  .addEventListener("click", deletePet);
