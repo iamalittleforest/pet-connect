@@ -36,6 +36,7 @@ const updatePet = async (event) => {
   }
 };
 
+// listen for submit
 document
   .querySelector('#update-pet-btn')
   .addEventListener('click', updatePet());
@@ -62,9 +63,7 @@ const deletePet = async (event) => {
   }
 };
 
+// listen for submit
 document
   .querySelector('#delete-pet-btn')
   .addEventListener('click', deletePet());
-
-
-

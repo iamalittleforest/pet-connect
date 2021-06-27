@@ -54,8 +54,9 @@ const updatePost = async (event) => {
   }
 };
 
+// listen for submit
 document
-  .querySelector('#update-btn')
+  .querySelector('#update-post-btn')
   .addEventListener('click', updatePost());
 
 // define function to delete post
@@ -80,6 +81,7 @@ const deletePost = async (event) => {
   }
 };
 
+// listen for submit
 document
-  .querySelector('#delete-btn')
+  .querySelector('#delete-post-btn')
   .addEventListener('click', deletePost());
