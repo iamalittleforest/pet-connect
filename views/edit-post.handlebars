@@ -1,59 +1,56 @@
- <div style="align-items: center; margin-left: 20%; margin-top: 5%;">
-  <div class="card border-primary mb" style="max-width: 60rem; align-items: center;">
-    <!-- this should get the username -->
-    <h2>Edit post</h2>
-<div class="card-header">{{username}}</div>
-<div class="form-group">
-  <fieldset disabled="">
-    <label class="form-label" for="disabledInput"><h3>{{title}}</h3></label>
-    <input class="form-control" id="edit-title" type="text" placeholder="{{title}}">
-  </fieldset>
-</div>
-<div class="card-body">
-  <!-- category -->
-   <div class="form-group">
-     <p>Current: {{category}}</p>
-    <p>What category is this post's category?</p>
-    <div class="col-med-4">
-      <div class="category">
-        <label>
-          <input type="radio" name="category" id="service" value="service" checked="">
-          Service
-        </label>
-      </div>
-      <div class="category">
-        <label>
-          <input type="radio" name="category" id="inquiry" value="inquiry">
-          Inquiry
-        </label>
-      </div>
-      <div class="category">
-        <label>
-          <input type="radio" name="category" id="products" value="products">
-          Products
-        </label>
-        <div class="category">
-          <label>
-            <input type="radio" name="category" id="meetup" value="meetup">
-            Meet up
-          </label>
+<!-- edit post -->
+<div class="edit-post-card m-3">
+    <div class="card border-primary">
+      <form class="form post-form">
+        <div class="card-header">Edit Post</div>
+        <div class="card-body">
+          <div class="form-group title mb-3">
+            <label for="edit-post-title" class="form-label">Title</label>
+            <textarea class="form-control" id="edit-post-title" rows="1">{{title}}</textarea>
+          </div>
+          <div class="form-group category mb-3">
+            <label for="edit-post-category" class="form-label">Category: {{category}}</label>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="inquiry" value="inquiry">
+                Inquiry
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="meetup" value="meetup">
+                Meet Up
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="products" value="products">
+                Products
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="service" value="service">
+                Service
+              </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="post-category" class="radio" id="training" value="training">
+                Training
+              </label>
+            </div>
+          </div>
+          <div class="form-group description mb-3">
+            <label for="edit-post-description" class="form-label">Description:</label>
+            <textarea class="form-control" id="edit-post-description" rows="3">{{description}}</textarea>
+          </div>
+          <button type="submit" class="btn btn-success" id="update-post-btn">Update</button>
+          <button type="submit" class="btn btn-success" id="delete-post-btn">Delete</button>
         </div>
-        <div class="category">
-          <label>
-            <input type="radio" name="category" id="training" value="training">
-            Training
-          </label>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
- <div class="form-group">
-   <label for="exampleTextarea" class="form-label mt-4">Post Content :</label>
-   <!-- the description shoul fill the text area for editing -->
-   <textarea class="form-control" id="edit-post-content" rows="3">{{description}}</textarea>
- </div>
- </div> 
- <button type="button" class="btn btn-success" id="edit-post"
 </div>
 
-<script src="../public/js/edit-post.js"></script>
+<script src="/js/edit-post.js"></script>

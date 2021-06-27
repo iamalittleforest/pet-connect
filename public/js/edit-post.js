@@ -1,59 +1,85 @@
-// 1st draft for testing
+// identify which radio button is checked and display
+function getNewCategory() {
+  const serviceCategory = document.querySelector('#service');
+  const inquiryCategory = document.querySelector('#inquiry');
+  const productsCategory = document.querySelector('#products');
+  const meetupCategory = document.querySelector('#meetup');
+  const trainingCategory = document.querySelector('#training');
 
-  function getNewCategory(){
-    const serviceCategory = document.querySelector('#service');
-    const inquiryCategory = document.querySelector('#inquiry');
-    const productsCategory = document.querySelector('#products');
-    const meetupCategory = document.querySelector('#meetup');
-    const trainingeCategory = document.querySelector('#training');
-
-    if(serviceCategory.checked==true){
-        return serviceCategory.value
-    }else if(inquiryCategory.checked==true){
-      return inquiryCategory.value
-    }else if(productsCategory.checked==true){
-      return productsCategory.value
-    }else if(meetupCategory.checked==true){
-      return meetupCategory.value
-    }else if(trainingeCategory.checked==value){
-      return trainingeCategory.value
-    }
+  if (serviceCategory.checked == true) {
+    return serviceCategory.value
+  } else if (inquiryCategory.checked == true) {
+    return inquiryCategory.value
+  } else if (productsCategory.checked == true) {
+    return productsCategory.value
+  } else if (meetupCategory.checked == true) {
+    return meetupCategory.value
+  } else if (trainingCategory.checked == value) {
+    return trainingCategory.value
+  }
 };
 
-const editPost = async (event) => {
-    event.preventDefault();
-    const newCategory = getNewCategory().value
+// collect inputs from radio buttons
+let category = null;
+Array.from(document.getElementsByClassName("radio")).forEach((a) => {
+  a.addEventListener("click", function () {
+    category = this.value;
+    console.log(category);
+  });
+});
 
-    const title = document.querySelector('#edit-title').value.trim();
-    // this is where the new catergory value will be placed in a const
-    const category = newcategory.value.trim();
-    const description = document.querySelector('#edit-post-content').value.trim();
+// define function to update post
+const updatePost = async (event) => {
+  event.preventDefault();
 
-    if (title && category && description) {
-        const response = await fetch(`/api/posts/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ title, content }),
-            headers: { 'Content-Type': 'application/json' }
-          });
+  // collect inputs
+  const id = window.location.toString().split('/').slice(-1)[0];
+  const title = document.querySelector('#edit-post-title').value.trim();
+  const description = document.querySelector('#edit-post-description').value.trim();
+  // console.log(id, title, category, description);
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } alert(response.statusText);
+  if (id && title && category && description) {
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ title, category, description }),
+      headers: { 'Content-Type': 'application/json' }
+    });
 
+    // redirect to dashboard if post update is successful
+    if (response.ok) {
+      document.location.replace(`/dashboard`);
+    } else {
+      alert(response.statusText);
     }
-
+  }
 };
 
-document.querySelector('#edit-post').addEventListener('click', editPost());
+document
+  .querySelector('#update-btn')
+  .addEventListener('click', updatePost());
 
+// define function to delete post
+const deletePost = async (event) => {
+  event.preventDefault();
 
-// this will be for getint the radio button info later
+  // collect inputs
+  const id = window.location.toString().split('/').slice(-1)[0];
+  // console.log(id);
 
-// ------------------------------------------
-// let chosenCategory = ;
-// Array.from(document.getElementsByClassName("category")).forEach((a) => {
-//   a.addEventListener("click", function () {
-//     chosenSpecies = this.value;
-//     console.log(chosenSpecies);
-//   });
-// });
+  if (id) {
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'DELETE'
+    });
+
+    // redirect to dashboard if post delete is successful
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+document
+  .querySelector('#delete-btn')
+  .addEventListener('click', deletePost());
