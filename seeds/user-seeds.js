@@ -23,7 +23,7 @@ const userData = [
     username: 'oms_ronen',
     location: 'Irvine',
     age: '23',
-    email: 'omri.ronen4@gmai.com',
+    email: 'omri.ronen4@gmail.com',
     password: 'password'
   },
   {
