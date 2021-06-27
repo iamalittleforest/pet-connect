@@ -1,20 +1,15 @@
 <!-- view pet -->
 {{#each users}}
 {{#each pets as |pet|}}
-  {{!-- <li class="list-group-item list-group-item-action active" aria-current="true"> --}}
-    <div class="col">
-      <div class="card mb-3">
-        <div class="card-header">
-          <span class="pet-name-txt">
-            <!-- header acts as a link to view a single pet -->
-            <a
-              class="pet-link"
-              href="/dashboard/edit-pet/{{id}}"
-            >{{pet.name}}</a>
-          </span>
-        </div>
-      </div>
+<div class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <span class="pet-name-txt">
+        <!-- header acts as a link to view a single pet -->
+        <a class="pet-link" href="/dashboard/edit-pet/{{id}}">{{pet.name}}</a>
+      </span>
     </div>
-  {{!-- </li> --}}
-  {{/each}}
+  </div>
+</div>
+{{/each}}
 {{/each}}
