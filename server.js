@@ -6,7 +6,7 @@ const path = require("path");
 
 // import routes, helpers, and connection
 const routes = require("./controllers");
-// const helpers = require('./utils');
+const helpers = require('./utils/helpers');
 const sequelize = require("./config/connection");
 
 // create new sequelize store
@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // set up custom helpers
-const hbs = exphbs.create();
+const hbs = exphbs.create({ helpers });
 
 // configure session
 const sess = {

@@ -7,7 +7,7 @@ const petData = [
     name: 'Kiba',
     species: 'Dog',
     breed: 'Shiba Inu',
-    gender: "Male",
+    gender: "male-neutered",
     age: 8,
     user_id: 1
   },
@@ -16,7 +16,7 @@ const petData = [
     name: 'Haku',
     species: 'Dog',
     breed: 'Shiba Inu',
-    gender: "Male",
+    gender: "male-neutered",
     age: 10,
     user_id: 1
   },
@@ -25,7 +25,7 @@ const petData = [
     name: 'Maple',
     species: 'Cat',
     breed: 'Domestic Short Hair',
-    gender: "Female",
+    gender: "female-spayed",
     age: 6,
     user_id: 1
   },
@@ -34,7 +34,7 @@ const petData = [
     name: 'Faye',
     species: 'Dog',
     breed: 'Husky Mix',
-    gender: "Female",
+    gender: "female",
     age: 2,
     user_id: 2
   },
@@ -43,7 +43,7 @@ const petData = [
     name: 'James',
     species: 'Cat',
     breed: 'Domestic Short Hair',
-    gender: "Male",
+    gender: "male",
     age: 5,
     user_id: 3
   },
@@ -52,7 +52,7 @@ const petData = [
     name: 'Jackson',
     species: 'Cat',
     breed: 'Domestic Long Hair',
-    gender: "Male",
+    gender: "male",
     age: 5,
     user_id: 3
   },
@@ -61,7 +61,7 @@ const petData = [
     name: 'Dave',
     species: 'Dog',
     breed: 'Pit Bull',
-    gender: "Male",
+    gender: "male",
     age: 5,
     user_id: 4
   },
@@ -70,7 +70,7 @@ const petData = [
     name: 'Dojo',
     species: 'Dog',
     breed: 'Labrador',
-    gender: "Male",
+    gender: "male",
     age: 10,
     user_id: 5
   },
@@ -79,7 +79,7 @@ const petData = [
     name: 'Layla',
     species: 'Cat',
     breed: 'Domestic Short Hair',
-    gender: "Female",
+    gender: "female",
     age: 5,
     user_id: 6
   },

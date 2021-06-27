@@ -19,39 +19,41 @@
       </div>
       <div class="form-group gender mb-3">
         <label for="edit-pet-gender" class="form-label">Gender</label>
+        <input type="hidden" id="gender" name="gender" value="{{gender}}">
         <div class="form-check">
           <label>
-            <input type="radio" name="pet-gender" class="radio" id="male" value="male">
+            <input type="radio" {{#if (checkGender gender "male")}} checked {{/if}} name="pet-gender" class="radio" id="male" value="male">
             Male
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="pet-gender" class="radio" id="male-neutered" value="male-neutered">
+            <input type="radio" {{#if (checkGender gender "male-neutered")}} checked {{/if}} name="pet-gender" class="radio" id="male-neutered" value="male-neutered">
             Male Neutered
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="pet-gender" class="radio" id="female" value="female">
+            <input type="radio" {{#if (checkGender gender "female")}} checked {{/if}} name="pet-gender" class="radio" id="female" value="female">
             Female
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="pet-gender" class="radio" id="female-spayed" value="female-spayed">
+            <input type="radio" {{#if (checkGender gender "female-spayed")}}checked {{/if}} name="pet-gender"
+              class="radio" id="female-spayed" value="female-spayed">
             Female Spayed
           </label>
         </div>
+        <div class="form-group age mb-3">
+          <label for="edit-pet-age" class="form-label">Age</label>
+          <textarea class="form-control" id="edit-pet-age" rows="1">{{age}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success" id="update-pet-btn">Update</button>
+        <button type="submit" class="btn btn-success" id="delete-pet-btn">Delete</button>
       </div>
-      <div class="form-group age mb-4">
-        <label for="edit-pet-age" class="form-label">Age</label>
-        <textarea class="form-control form-control-sm" id="edit-pet-age" rows="1">{{age}}</textarea>
-      </div>
-      <button type="submit" class="btn btn-success" id="update-pet-btn">Update</button>
-      <button type="submit" class="btn btn-danger" id="delete-pet-btn">Delete</button>
-    </div>
   </form>
+</div>
 </div>
 
 <script src="/js/edit-pet.js"></script>

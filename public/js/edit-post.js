@@ -1,26 +1,5 @@
-// identify which radio button is checked and display
-function getNewCategory() {
-  const serviceCategory = document.querySelector('#service');
-  const inquiryCategory = document.querySelector('#inquiry');
-  const productsCategory = document.querySelector('#products');
-  const meetupCategory = document.querySelector('#meetup');
-  const trainingCategory = document.querySelector('#training');
-
-  if (serviceCategory.checked == true) {
-    return serviceCategory.value
-  } else if (inquiryCategory.checked == true) {
-    return inquiryCategory.value
-  } else if (productsCategory.checked == true) {
-    return productsCategory.value
-  } else if (meetupCategory.checked == true) {
-    return meetupCategory.value
-  } else if (trainingCategory.checked == value) {
-    return trainingCategory.value
-  }
-};
-
 // collect inputs from radio buttons
-let category = null;
+let category = document.querySelector('#category').value.trim();
 Array.from(document.getElementsByClassName("radio")).forEach((a) => {
   a.addEventListener("click", function () {
     category = this.value;
@@ -54,7 +33,7 @@ const updatePost = async (event) => {
   }
 };
 
-// listen for submit
+// listen for click
 document
   .querySelector('#update-post-btn')
   .addEventListener('click', updatePost());
@@ -81,7 +60,7 @@ const deletePost = async (event) => {
   }
 };
 
-// listen for submit
+// listen for lick
 document
   .querySelector('#delete-post-btn')
   .addEventListener('click', deletePost());
