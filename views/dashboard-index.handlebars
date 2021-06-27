@@ -1,38 +1,26 @@
 <!-- render posts -->
 <div class="outer" style="display:flex; flex-direction:row;justify-content:space-evenly; width: 100%">
 
-  <div class="posts p-4 mt-3 shadow-lg bg-secondary" style="width: 45%; height:80vh;;box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;
-">
-            <!-- START OF POSTS -->
-            <div  style="toverflow-x: scroll; max-height: 80vh;">
-
-                
-                        {{> post-header}}
-
-                <div class="text-center m-2">
-   
-    <button type="button" class="btn btn-outline-light" href="/dashboard/create">Create New Post</button>
-            </div>
-            </div>
-            </div>
-
-            <!-- END OF POSTS -->
-            <!-- START OF PETS -->
-        <div class="pets shadow-lg p-4 mt-3 bg-secondary" style="width: 45%;height:80vh;background: #505050; box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
-            
-            <div style="overflow-x: scroll; max-height: 80vh;">
-
-                    {{!-- <ul class="list-group"> --}}
-
-                        {{> pet-header}}
-                       
-                    {{!-- </ul> --}}
+  <!-- START OF POSTS -->
+  <div class="posts p-4 mt-3 shadow-lg bg-secondary"
+    style="width: 45%; height:80vh;;box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
+    <div style="max-height: 80vh;">
+      {{> post-header}}
     </div>
-<!-- new post button -->
-  <div class="text-center m-2">
-   
-    <button type="button" class="btn btn-outline-light" href="/dashboard/create">Create New Post</button>
-            </div>
-  
-        </div>
+    <div class="text-center m-2">
+      <a class="btn btn-outline-light" href="/dashboard/create-post" role="button">Create New Post</a>
+    </div>
+  </div>
+  <!-- END OF POSTS -->
+
+  <!-- START OF PETS -->
+  <div class="pets shadow-lg p-4 mt-3 bg-secondary"
+    style="width: 45%;height:80vh;background: #505050; box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
+    <div style="max-height: 80vh;">
+      {{> pet-header}}
+    </div>
+    <div class="text-center m-2">
+      <a class="btn btn-outline-light" href="/dashboard/create-pet" role="button">Create New Pet</a>
+    </div>
+  </div>
 </div>

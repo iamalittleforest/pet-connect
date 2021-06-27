@@ -1,17 +1,17 @@
 <!-- view post -->
-<div class="post-card">
-  <div class="card border-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header">
-      <!-- header acts as a link to view a single post -->
-      <a class="post-link" href="/posts/{{id}}">{{title}}</a>
+<div class="post card mb-3">
+  <div class="card-header">
+    <!-- header acts as a link to view a single post -->
+    <a class="post-link" href="/posts/{{id}}">
+      <h4 style="margin: 0">{{title}}</h4>
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <h6 class="text-light" style="font-weight: bold;">USERNAME</h6>
+      <p class="card-text">{{user.username}}</p>
+      <h6 class="text-light" style="font-weight: bold;">POST <span class="badge rounded-pill bg-info">{{category}}</span></h6>
+      <p class="card-text">{{description}}</p>
     </div>
-    <div class="card-body">
-      <span class="badge rounded-pill bg-warning">{{category}}</span>
-      <div class="form-group">
-        <label for="post" class="form-label mt-4">Post</label>
-        <p class="card-text">{{description}}</p>
-        <!-- missing username -->
-      </div>
-    </div>
-  </div> 
+  </div>
 </div>
