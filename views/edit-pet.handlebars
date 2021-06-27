@@ -1,97 +1,57 @@
-<div style="align-items: center; margin-left: 25%;">
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-    <div class="card-header">Add a pet</div>
-    <div class="card-body">
-      <p>Edit your pet's infortaion</p>
-      <div class="form-group">
-        <p>Current Name: {{name}}</p>
-        <label class="col-form-label mt-4" for="inputDefault">What is your pet's name?</label>
-        <input type="text" class="form-control" placeholder="Max" id="petName">
+<!-- edit pet -->
+<div class="edit-pet-card m-3">
+  <div class="card border-primary">
+    <form class="form edit-pet-form">
+      <div class="card-header">Edit Pet</div>
+      <div class="card-body">
+        <div class="form-group name mb-3">
+          <label for="edit-pet-name" class="form-label">Name</label>
+          <textarea class="form-control" id="edit-pet-name" rows="1">{{name}}</textarea>
+        </div>
+        <div class="form-group species mb-3">
+          <label for="edit-pet-species" class="form-label">Species</label>
+          <textarea class="form-control" id="edit-pet-species" rows="1">{{species}}</textarea>
+        </div>
+        <div class="form-group breed mb-3">
+          <label for="edit-pet-breed" class="form-label">Breed</label>
+          <textarea class="form-control" id="edit-pet-breed" rows="1">{{breed}}</textarea>
+        </div>
+        <div class="form-group gender mb-3">
+          <label for="edit-pet-gender" class="form-label">Gender</label>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="male" value="male">
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="male-neutered" value="male-neutered">
+              Male Neutered
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="female" value="female">
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="pet-gender" class="radio" id="female-spayed" value="female-spayed">
+              Female Spayed
+            </label>
+          </div>
+        </div>
+        <div class="form-group age mb-3">
+          <label for="edit-pet-age" class="form-label">Age</label>
+          <textarea class="form-control" id="edit-pet-age" rows="1">{{age}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success" id="update-pet-btn">Update</button>
+        <button type="submit" class="btn btn-success" id="delete-pet-btn">Delete</button>
       </div>
-
-      <br>
-
-      <div class="row">
-        <p>Current species: {{species}}</p>
-        <p>choose your pet's species</p>
-        <div class="col">
-          <i class="fas fa-dog fa-4x"></i>
-          <button type="radio" class="form-check-input species" name="species" id="canineOption" value="Canine"
-            checked=""></button>
-        </div>
-        <div class="col">
-          <i class="fas fa-cat fa-4x"></i>
-          <button type="radio" class="form-check-input species" name="species" id="felineOption"
-            value="Feline"></button>
-        </div>
-      </div>
-
-      <br>
-
-      <p>Current breed : {{breed}}</p>
-
-      <div class="form-group">
-        <label class="col-form-label mt-4" for="inputDefault">What is your pet's breed?</label>
-        <input type="text" class="form-control" placeholder="Labrador" id="peBreed">
-      </div>
-      <fieldset class="form-group">
-        <legend class="mt-4">Gender</legend>
-        <p>Current Gender : {{gender}}</p>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios1" value="Male"
-              checked="">
-            Male
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios2"
-              value="Male Neutered">
-            Male Neutered
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios3" value="Female">
-            Female
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input gender" name="optionsRadios" id="optionsRadios3"
-              value="Female Spayed">
-            Female Spayed
-          </label>
-        </div>
-      </fieldset>
-      <br>
-      <div class="form-group">
-        <fieldset>
-          <p>Current age : {{age}}</p>
-          <label class="form-label" for="disabledInput">What is your pet's age?</label>
-          <input class="form-control" id="newPetAge" type="text" placeholder="Pet age">
-        </fieldset>
-      </div>
-    </div>
-    <button type="button" class="btn btn-success">Submit</button>
-    <br>
+    </form>
   </div>
 </div>
-</div>
-<script>
-  let chosenSpecies = {{ species }};
-  Array.from(document.getElementsByClassName("species")).forEach((a) => {
-    a.addEventListener("click", function () {
-      chosenSpecies = this.value;
-      console.log(chosenSpecies);
-    });
-  });
-  let chosenGender = {{ gender }};
-  Array.from(document.getElementsByClassName("gender")).forEach((a) => {
-    a.addEventListener("click", function () {
-      chosenGender = this.value;
-      console.log(chosenGender);
-    });
-  });
-</script>
+
+<script src="/js/edit-pet.js"></script>
