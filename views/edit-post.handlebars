@@ -10,34 +10,35 @@
         <textarea class="form-control form-control-sm" id="edit-post-title" rows="1">{{title}}</textarea>
       </div>
       <div class="form-group category mb-3">
-        <label for="edit-post-category" class="form-label">Category: {{category}}</label>
+        <label for="edit-post-category" class="form-label">Category</label>
+        <input type="hidden" id="category" name="category" value="{{category}}">
         <div class="form-check">
           <label>
-            <input type="radio" name="post-category" class="radio" id="inquiry" value="inquiry">
+            <input type="radio" {{#if (checkCategory category "inquiry")}} checked {{/if}} name="post-category" class="radio" id="inquiry" value="inquiry">
             Inquiry
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="post-category" class="radio" id="meetup" value="meetup">
+            <input type="radio" {{#if (checkCategory category "meetup")}} checked {{/if}} name="post-category" class="radio" id="meetup" value="meetup">
             Meet Up
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="post-category" class="radio" id="products" value="products">
+            <input type="radio" {{#if (checkCategory category "products" )}} checked {{/if}} name="post-category" class="radio" id="products" value="products">
             Products
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="post-category" class="radio" id="service" value="service">
+            <input type="radio" {{#if (checkCategory category "service" )}} checked {{/if}} name="post-category" class="radio" id="service" value="service">
             Service
           </label>
         </div>
         <div class="form-check">
           <label>
-            <input type="radio" name="post-category" class="radio" id="training" value="training">
+            <input type="radio" {{#if (checkCategory category "training" )}} checked {{/if}} name="post-category" class="radio" id="training" value="training">
             Training
           </label>
         </div>
