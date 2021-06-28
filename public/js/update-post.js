@@ -1,4 +1,5 @@
 // collect inputs from radio buttons
+let category = document.querySelector('#category').value.trim();
 Array.from(document.getElementsByClassName("radio")).forEach((a) => {
   a.addEventListener("click", function () {
     category = this.value;

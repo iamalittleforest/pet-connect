@@ -18,7 +18,7 @@ const updatePet = async (event) => {
   const age = document.querySelector("#edit-pet-age").value.trim();
   // console.log(name && species && breed && gender && age);
 
-  if (id && name && species && breed && gender && age) {
+  if (id && name && species && breed && gender && age || name) {
     const response = await fetch(`/api/pets/${id}`, {
       method: "PUT",
       body: JSON.stringify({ name, species, breed, gender, age }),
