@@ -1,59 +1,64 @@
 <!-- edit pet -->
-<div class="edit-pet card bg-secondary m-3" style="width: 65vw">
-  <form class="form edit-pet-form">
-    <div class="card-header">
-      <h4 style="margin: 0">Edit Pet</h4>
-    </div>
-    <div class="card-body">
-      <div class="form-group name mb-3">
-        <label for="edit-pet-name" class="form-label">Name</label>
-        <textarea class="form-control form-control-sm" id="edit-pet-name" rows="1">{{name}}</textarea>
+<div class="col">
+  <div class="edit-pet card bg-secondary m-3">
+    <form class="form edit-pet-form">
+      <div class="card-header">
+        <h4 style="margin: 0">Edit Pet</h4>
       </div>
-      <div class="form-group species mb-3">
-        <label for="edit-pet-species" class="form-label">Species</label>
-        <textarea class="form-control form-control-sm" id="edit-pet-species" rows="1">{{species}}</textarea>
+      <div class="card-body">
+        <div class="form-group name mb-3">
+          <label for="edit-pet-name" class="form-label">Name</label>
+          <textarea class="form-control form-control-sm" id="edit-pet-name" rows="1">{{name}}</textarea>
+        </div>
+        <div class="form-group species mb-3">
+          <label for="edit-pet-species" class="form-label">Species</label>
+          <textarea class="form-control form-control-sm" id="edit-pet-species" rows="1">{{species}}</textarea>
+        </div>
+        <div class="form-group breed mb-3">
+          <label for="edit-pet-breed" class="form-label">Breed</label>
+          <textarea class="form-control form-control-sm" id="edit-pet-breed" rows="1">{{breed}}</textarea>
+        </div>
+        <div class="form-group gender mb-3">
+          <label for="edit-pet-gender" class="form-label">Gender</label>
+          <input type="hidden" id="gender" name="gender" value="{{gender}}">
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkGender gender "male" )}} checked {{/if}} name="pet-gender" class="radio"
+                id="male" value="male">
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkGender gender "male-neutered" )}} checked {{/if}} name="pet-gender"
+                class="radio" id="male-neutered" value="male-neutered">
+              Male Neutered
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkGender gender "female" )}} checked {{/if}} name="pet-gender" class="radio"
+                id="female" value="female">
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkGender gender "female-spayed" )}}checked {{/if}} name="pet-gender"
+                class="radio" id="female-spayed" value="female-spayed">
+              Female Spayed
+            </label>
+          </div>
+          <div class="form-group age mb-3">
+            <label for="edit-pet-age" class="form-label">Age</label>
+            <textarea class="form-control" id="edit-pet-age" rows="1">{{age}}</textarea>
+          </div>
+          <button type="submit" class="btn btn-success" id="update-pet-btn">Update</button>
+          <button type="submit" class="btn btn-danger" id="delete-pet-btn">Delete</button>
+        </div>
       </div>
-      <div class="form-group breed mb-3">
-        <label for="edit-pet-breed" class="form-label">Breed</label>
-        <textarea class="form-control form-control-sm" id="edit-pet-breed" rows="1">{{breed}}</textarea>
-      </div>
-      <div class="form-group gender mb-3">
-        <label for="edit-pet-gender" class="form-label">Gender</label>
-        <input type="hidden" id="gender" name="gender" value="{{gender}}">
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkGender gender "male")}} checked {{/if}} name="pet-gender" class="radio" id="male" value="male">
-            Male
-          </label>
-        </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkGender gender "male-neutered")}} checked {{/if}} name="pet-gender" class="radio" id="male-neutered" value="male-neutered">
-            Male Neutered
-          </label>
-        </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkGender gender "female")}} checked {{/if}} name="pet-gender" class="radio" id="female" value="female">
-            Female
-          </label>
-        </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkGender gender "female-spayed")}}checked {{/if}} name="pet-gender"
-              class="radio" id="female-spayed" value="female-spayed">
-            Female Spayed
-          </label>
-        </div>
-        <div class="form-group age mb-3">
-          <label for="edit-pet-age" class="form-label">Age</label>
-          <textarea class="form-control" id="edit-pet-age" rows="1">{{age}}</textarea>
-        </div>
-        <button type="submit" class="btn btn-success" id="update-pet-btn">Update</button>
-        <button type="submit" class="btn btn-danger" id="delete-pet-btn">Delete</button>
-      </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>
 
 <script src="/js/update-pet.js"></script>

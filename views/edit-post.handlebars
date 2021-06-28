@@ -1,56 +1,63 @@
 <!-- edit post -->
-<div class="edit-post card bg-secondary m-3" style="width: 65vw">
-  <form class="form post-form">
-    <div class="card-header">
-      <h4 style="margin: 0">Edit Post</h4>
-    </div>
-    <div class="card-body">
-      <div class="form-group title mb-3">
-        <label for="edit-post-title" class="form-label">Title</label>
-        <textarea class="form-control form-control-sm" id="edit-post-title" rows="1">{{title}}</textarea>
+<div class="col">
+  <div class="edit-post card bg-secondary m-3">
+    <form class="form post-form">
+      <div class="card-header">
+        <h4 style="margin: 0">Edit Post</h4>
       </div>
-      <div class="form-group category mb-3">
-        <label for="edit-post-category" class="form-label">Category</label>
-        <input type="hidden" id="category" name="category" value="{{category}}">
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkCategory category "inquiry")}} checked {{/if}} name="post-category" class="radio" id="inquiry" value="inquiry">
-            Inquiry
-          </label>
+      <div class="card-body">
+        <div class="form-group title mb-3">
+          <label for="edit-post-title" class="form-label">Title</label>
+          <textarea class="form-control form-control-sm" id="edit-post-title" rows="1">{{title}}</textarea>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkCategory category "meetup")}} checked {{/if}} name="post-category" class="radio" id="meetup" value="meetup">
-            Meet Up
-          </label>
+        <div class="form-group category mb-3">
+          <label for="edit-post-category" class="form-label">Category</label>
+          <input type="hidden" id="category" name="category" value="{{category}}">
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkCategory category "inquiry" )}} checked {{/if}} name="post-category"
+                class="radio" id="inquiry" value="inquiry">
+              Inquiry
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkCategory category "meetup" )}} checked {{/if}} name="post-category"
+                class="radio" id="meetup" value="meetup">
+              Meet Up
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkCategory category "products" )}} checked {{/if}} name="post-category"
+                class="radio" id="products" value="products">
+              Products
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkCategory category "service" )}} checked {{/if}} name="post-category"
+                class="radio" id="service" value="service">
+              Service
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" {{#if (checkCategory category "training" )}} checked {{/if}} name="post-category"
+                class="radio" id="training" value="training">
+              Training
+            </label>
+          </div>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkCategory category "products" )}} checked {{/if}} name="post-category" class="radio" id="products" value="products">
-            Products
-          </label>
+        <div class="form-group description mb-4">
+          <label for="edit-post-description" class="form-label">Description:</label>
+          <textarea class="form-control form-control-sm" id="edit-post-description" rows="3">{{description}}</textarea>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkCategory category "service" )}} checked {{/if}} name="post-category" class="radio" id="service" value="service">
-            Service
-          </label>
-        </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" {{#if (checkCategory category "training" )}} checked {{/if}} name="post-category" class="radio" id="training" value="training">
-            Training
-          </label>
-        </div>
+        <button type="submit" class="btn btn-success" id="update-post-btn">Update</button>
+        <button type="submit" class="btn btn-danger" id="delete-post-btn">Delete</button>
       </div>
-      <div class="form-group description mb-4">
-        <label for="edit-post-description" class="form-label">Description:</label>
-        <textarea class="form-control form-control-sm" id="edit-post-description" rows="3">{{description}}</textarea>
-      </div>
-      <button type="submit" class="btn btn-success" id="update-post-btn">Update</button>
-      <button type="submit" class="btn btn-danger" id="delete-post-btn">Delete</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <script src="/js/update-post.js"></script>

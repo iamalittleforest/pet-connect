@@ -1,54 +1,58 @@
 <!-- create post -->
-<div class="create-post card bg-secondary m-3" style="width: 65vw">
-  <form class="form create-post-form">
-    <div class="card-header">
-      <h4 style="margin: 0">Create Post</h4>
-    </div>
-    <div class="card-body">
-      <div class="form-group title mb-3">
-        <label for="create-post-title" class="form-label">Title</label>
-        <textarea class="form-control form-control-sm" id="create-post-title" rows="1" placeholder="Enter Post Title"></textarea>
+<div class="col">
+  <div class="create-post card bg-secondary m-3">
+    <form class="form create-post-form">
+      <div class="card-header">
+        <h4 style="margin: 0">Create Post</h4>
       </div>
-      <div class="form-group category mb-3">
-        <label for="create-post-category" class="form-label">Category</label>
-        <div class="form-check">
-          <label>
-            <input type="radio" name="post-category" class="radio" id="inquiry" value="inquiry">
-            Inquiry
-          </label>
+      <div class="card-body">
+        <div class="form-group title mb-3">
+          <label for="create-post-title" class="form-label">Title</label>
+          <textarea class="form-control form-control-sm" id="create-post-title" rows="1"
+            placeholder="Enter Post Title"></textarea>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" name="post-category" class="radio" id="meetup" value="meetup">
-            Meet Up
-          </label>
+        <div class="form-group category mb-3">
+          <label for="create-post-category" class="form-label">Category</label>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="post-category" class="radio" id="inquiry" value="inquiry">
+              Inquiry
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="post-category" class="radio" id="meetup" value="meetup">
+              Meet Up
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="post-category" class="radio" id="products" value="products">
+              Products
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="post-category" class="radio" id="service" value="service">
+              Service
+            </label>
+          </div>
+          <div class="form-check">
+            <label>
+              <input type="radio" name="post-category" class="radio" id="training" value="training">
+              Training
+            </label>
+          </div>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" name="post-category" class="radio" id="products" value="products">
-            Products
-          </label>
+        <div class="form-group description mb-4">
+          <label for="create-post-description" class="form-label">Description</label>
+          <textarea class="form-control form-control-sm" id="create-post-description" rows="3"
+            placeholder="Enter Post Description"></textarea>
         </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" name="post-category" class="radio" id="service" value="service">
-            Service
-          </label>
-        </div>
-        <div class="form-check">
-          <label>
-            <input type="radio" name="post-category" class="radio" id="training" value="training">
-            Training
-          </label>
-        </div>
+        <button type="submit" class="btn btn-success" id="create-post-btn">Create</button>
       </div>
-      <div class="form-group description mb-4">
-        <label for="create-post-description" class="form-label">Description</label>
-        <textarea class="form-control form-control-sm" id="create-post-description" rows="3" placeholder="Enter Post Description"></textarea>
-      </div>
-      <button type="submit" class="btn btn-success" id="create-post-btn">Create</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <script src="/js/create-post.js"></script>

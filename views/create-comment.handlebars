@@ -6,19 +6,21 @@
 
 <!-- create comment if user is logged in -->
 {{#if logged_in}}
-<div class="create-comment card border-secondary mb-3">
-  <form class="form comment-form">
-    <div class="card-header">
-      <h4 style="margin: 0">Create a Comment</h4>
-    </div>
-    <div class="card-body">
-      <div class="form-group comment mb-4">
-        <label for="comment-body" class="form-label">Comment</label>
-        <textarea class="form-control" id="comment-body" rows="3" placeholder="Enter Comment"></textarea>
+<div class="col">
+  <div class="create-comment card border-secondary mb-3">
+    <form class="form comment-form">
+      <div class="card-header">
+        <h4 style="margin: 0">Create a Comment</h4>
       </div>
+      <div class="card-body">
+        <div class="form-group comment mb-4">
+          <label for="comment-body" class="form-label">Comment</label>
+          <textarea class="form-control" id="comment-body" rows="3" placeholder="Enter Comment"></textarea>
+        </div>
         <button type="submit" class="btn btn-success" id="comment-btn">Submit</button>
-    </div>
-  </form>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="/js/create-comment.js"></script>
