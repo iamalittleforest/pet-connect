@@ -1,12 +1,14 @@
 <!-- view comment -->
 {{#each comments}}
-<div class="comment card mb-3">
-  <div class="card-header text-info">
-    <h4 style="margin: 0">{{user.username}}</h4>
-  </div>
-  <div class="card-body">
+<div class="col">
+  <div class="comment card mb-3">
+    <div class="card-header text-info">
+      <h4 style="margin: 0">{{user.username}}</h4>
+    </div>
+    <div class="card-body">
       <h6 class="text-light" style="font-weight: bold;">COMMENT</h6>
       <p class="card-text">{{body}}</p>
+    </div>
   </div>
 </div>
 {{/each}}

@@ -1,97 +1,87 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Pet Connect - Home</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>Pet Connect - Home</title>
+</head>
 
-  <body>
+<body>
 
-    <!-- header with navigation -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+  <!-- header with navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
 
-          <a class="navbar-brand" href="/">Pet Connect</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor03"
-            aria-controls="navbarColor03"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <a class="navbar-brand" href="/">Pet Connect</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+          aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="/">Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Dashboard</a>
-              </li>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
 
-              <!-- render links based on login status -->
-              {{#if logged_in}}
-                <li class="nav-item">
-                  <a class="nav-link" type="button" id="logout">Logout</a>
-                </li>
-              {{else}}
-                <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/signup">Sign-Up</a>
-                </li>
-              {{/if}}
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-    </header>
-
-    <!-- main -->
-    <main>
-      <div class="center" style="display: flex; top: 4rem; padding-top: 3rem">
-        <div class="relative" style="display: flex; flex-direction:column; top: 4rem;">
-          <div class="container mb-3">
+            <!-- render links based on login status -->
             {{#if logged_in}}
-            <h4 class="text-center">Welcome Back to Pet Connect!</h4>
+            <li class="nav-item">
+              <a class="nav-link" type="button" id="logout">Logout</a>
+            </li>
             {{else}}
-            <h4 class="text-center">Welcome to Pet Connect!<br>Please log in or sign up to create posts and leave comments.</h4>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign-Up</a>
+            </li>
             {{/if}}
-          </div>
-          <!-- render sublayout -->
-          {{{body}}}
+          </ul>
         </div>
-      </div>
-    </main>
 
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    >
+      </div>
+    </nav>
+  </header>
+
+  <!-- main -->
+  <main class="m-4">
+    <div class="container">
+      <div class="row row-cols-1 g-2 align-item-center justify-content-center">
+        {{#if logged_in}}
+        <h4 class="text-center">Welcome Back to Pet Connect!</h4>
+        {{else}}
+        <h4 class="text-center">Welcome to Pet Connect!<br>Please log in / sign up to leave comments and view the
+          dashboard.
+        </h4>
+        {{/if}}
+
+        <!-- render sublayout -->
+        {{{ body }}}
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 
-    <!-- if the user is logged in, render logout script -->
-    {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
+  <!-- if the user is logged in, render logout script -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
-  </body>
+</body>
 
 </html>

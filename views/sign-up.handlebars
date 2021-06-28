@@ -1,33 +1,40 @@
 <!-- sign up -->
-<div class="signup card bg-secondary m-3" style="width: 65vw">
-  <form class="form signup-form">
-    <div class="card-header">
-      <h4 style="margin: 0">Sign Up</h4>
-    </div>
-    <div class="card-body">
-      <div class="form-group name mb-3">
-        <label for="signup-username" class="form-label">Username</label>
-        <textarea class="form-control form-control-sm" id="signup-username" rows="1" placeholder="Enter Username"></textarea>
+<div class="col">
+  <div class="signup card bg-secondary m-3">
+    <form class="form signup-form">
+      <div class="card-header">
+        <h4 style="margin: 0">Sign Up</h4>
       </div>
-      <div class="form-group breed mb-3">
-        <label for="signup-location" class="form-label">Location</label>
-        <textarea class="form-control form-control-sm" id="signup-location" rows="1" placeholder="Enter City"></textarea>
+      <div class="card-body">
+        <div class="form-group name mb-3">
+          <label for="signup-username" class="form-label">Username</label>
+          <textarea class="form-control form-control-sm" id="signup-username" rows="1"
+            placeholder="Enter Username"></textarea>
+        </div>
+        <div class="form-group breed mb-3">
+          <label for="signup-location" class="form-label">Location</label>
+          <textarea class="form-control form-control-sm" id="signup-location" rows="1"
+            placeholder="Enter City"></textarea>
+        </div>
+        <div class="form-group age mb-3">
+          <label for="signup-age" class="form-label">Age</label>
+          <textarea class="form-control form-control-sm" id="signup-age" rows="1"
+            placeholder="Enter Age  (must be 18+)"></textarea>
+        </div>
+        <div class="form-group species mb-3">
+          <label for="signup-email" class="form-label">Email</label>
+          <textarea class="form-control form-control-sm" id="signup-email" rows="1"
+            placeholder="Enter Email"></textarea>
+        </div>
+        <div class="form-group age mb-4">
+          <label for="signup-password" class="form-label">Password</label>
+          <input class="form-control form-control-sm" type="password" id="signup-password"
+            placeholder="Enter Password"></input>
+        </div>
+        <button type="submit" class="btn btn-primary" id="signup-btn">Sign Up</button>
       </div>
-      <div class="form-group age mb-3">
-        <label for="signup-age" class="form-label">Age</label>
-        <textarea class="form-control form-control-sm" id="signup-age" rows="1" placeholder="Enter Age  (must be 18+)"></textarea>
-      </div>
-      <div class="form-group species mb-3">
-        <label for="signup-email" class="form-label">Email</label>
-        <textarea class="form-control form-control-sm" id="signup-email" rows="1" placeholder="Enter Email"></textarea>
-      </div>
-      <div class="form-group age mb-4">
-        <label for="signup-password" class="form-label">Password</label>
-        <input class="form-control form-control-sm" type="password" id="signup-password" placeholder="Enter Password"></input>
-      </div>
-      <button type="submit" class="btn btn-primary" id="signup-btn">Sign Up</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <script src="/js/sign-up.js"></script>
