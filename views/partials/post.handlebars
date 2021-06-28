@@ -2,16 +2,14 @@
 <div class="post card mb-3">
   <div class="card-header">
     <!-- header acts as a link to view a single post -->
-    <a class="post-link" href="/posts/{{id}}">
-      <h4 style="margin: 0">{{title}}</h4>
-    </a>
+    <h4 style="margin: 0">{{title}}</h4>
   </div>
   <div class="card-body">
     <div class="form-group">
-      <h6 class="text-light" style="font-weight: bold;">USERNAME</h6>
       <p class="card-text">{{user.username}}</p>
-      <h6 class="text-light" style="font-weight: bold;">POST <span class="badge rounded-pill bg-info">{{category}}</span></h6>
+      <span class="badge rounded-pill bg-info mb-3">{{category}}</span>
       <p class="card-text">{{description}}</p>
     </div>
   </div>
 </div>
+
