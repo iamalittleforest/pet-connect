@@ -64,7 +64,13 @@
     <main>
       <div class="center" style="display: flex; top: 4rem; padding-top: 3rem">
         <div class="relative" style="display: flex; flex-direction:column; top: 4rem;">
-{{!-- styling by Rod --}}
+          <div class="container mb-3">
+            {{#if logged_in}}
+            <h4 class="text-center">Welcome Back to Pet Connect!</h4>
+            {{else}}
+            <h4 class="text-center">Welcome to Pet Connect!<br>Please log in or sign up to create posts and leave comments.</h4>
+            {{/if}}
+          </div>
           <!-- render sublayout -->
           {{{body}}}
         </div>
