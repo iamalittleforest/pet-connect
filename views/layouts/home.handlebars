@@ -56,19 +56,18 @@
   <!-- main -->
   <main class="m-4">
     <div class="container">
-      <div class="row row-cols-1 g-2 align-item-center justify-content-center">
-        {{#if logged_in}}
-        <h4 class="text-center">Welcome Back to Pet Connect!</h4>
-        {{else}}
-        <h4 class="text-center">Welcome to Pet Connect!<br>Please log in / sign up to leave comments and view the
-          dashboard.
-        </h4>
-        {{/if}}
 
-        <!-- render sublayout -->
-        {{{ body }}}
+      {{#if logged_in}}
+      <h4 class="text-center mb-4">Welcome Back to Pet Connect!</h4>
+      {{else}}
+      <h4 class="text-center mb-4">Welcome to Pet Connect!<br>Please log in / sign up to leave comments and view the
+        dashboard.
+      </h4>
+      {{/if}}
 
-      </div>
+      <!-- render sublayout -->
+      {{{ body }}}
+
     </div>
   </main>
 

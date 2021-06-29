@@ -1,24 +1,23 @@
-<!-- render posts -->
-<div class="outer" style="display:flex; flex-direction:row;justify-content:space-evenly; width:100%">
-
-  <!-- START OF POSTS -->
-  <div class="posts p-4 mt-3 shadow-lg bg-secondary"
-    style="width:45%; height:75vh; box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
+<!-- START OF POSTS -->
+<div class="col-sm-12 col-lg-6 gx-4 mb-4">
+  <div class="posts p-4 bg-secondary">
     <h4 class="text-center mb-4">Your Posts</h4>
     {{> post-header}}
-    <div class="text-center m-2">
+    <div class="text-center">
       <a class="btn btn-info" href="/dashboard/create-post" role="button">Create New Post</a>
     </div>
   </div>
-  <!-- END OF POSTS -->
+</div>
+<!-- END OF POSTS -->
 
-  <!-- START OF PETS -->
-  <div class="pets p-4 mt-3 shadow-lg bg-secondary"
-    style="width:45%; height:75vh; box-shadow: 0 1rem 3rem rgba(20,100,200,.35)!important;">
+<!-- START OF PETS -->
+<div class="col-sm-12 col-lg-6 gx-4 mb-4">
+  <div class="pets p-4 bg-secondary">
     <h4 class="text-center mb-4">Your Pets </h4>
     {{> pet-header}}
-    <div class="text-center m-2">
+    <div class="text-center">
       <a class="btn btn-info" href="/dashboard/create-pet" role="button">Create New Pet</a>
     </div>
   </div>
 </div>
+<!-- START OF PETS -->
