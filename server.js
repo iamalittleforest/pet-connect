@@ -1,4 +1,5 @@
 // dependencies
+const compression = require("compression");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
@@ -29,6 +30,9 @@ const sess = {
     db: sequelize,
   }),
 };
+
+// set up compression
+app.use(compression());
 
 // middleware to set up session
 app.use(session(sess));
